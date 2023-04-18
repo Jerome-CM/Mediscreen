@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/CSS/style.css}" />
+</head>
+<body>
+
+    <h1>Login for doctor</h1>
+
+    <form action="#" th:action="@{/connexion}" th:object="${connexionDTO}" method="post">
+        <label for="firstname"></label>
+        <input type="text" th:field="*{firstname}" id="firstname" placeholder="Firstname">
+        <p class="text-danger" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></p>
+        <label for="lastname"></label>
+        <input type="text" th:field="*{lastname}" id="lastname" placeholder="Lastname">
+        <p class="text-danger" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></p>
+    </form>
+</body>
+</html>
