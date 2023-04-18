@@ -2,6 +2,7 @@ package com.mediscreen.user.service;
 
 import com.mediscreen.user.entity.Doctor;
 import com.mediscreen.user.repository.DoctorCRUD;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -24,14 +25,13 @@ public class DoctorService {
         }
     }
 
-    public Doctor findDoctorByFirstname(Doctor doctor){
+    public Doctor findDoctorByFirstname(HttpServletRequest request){
 
-        String firstname = doctor.getFirstname();
-        Optional<Doctor> doctorOpt = doctorCRUD.findDoctorByFirstname(firstname);
+        Optional<Doctor> doctorOpt = doctorCRUD.findDoctorByFirstname(request.getParameter("firstname"));
         if(doctorOpt.isPresent()){
             return doctorOpt.get();
         } else {
-           return doctorCRUD.save(doctor);
+           return doctorCRUD.save(new Doctor(request.getParameter("firstname"), request.getParameter("lastname")));
         }
     }
 }

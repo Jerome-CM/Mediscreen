@@ -20,18 +20,21 @@ public class PatientController {
     }
 
     @GetMapping(value="/patientList")
-    void getPatientsList(Model map){
+    String getPatientsList(Model map){
         map.addAttribute("patientsList", patientService.getPatientsList());
+        return "patientList";
     }
 
     @GetMapping(value="/patient/{id}")
-    void getPatient(Model map, @PathVariable long id){
+    String getPatient(Model map, @PathVariable long id){
         Optional<Patient> patient = patientService.getPatientById(id);
         if(patient.isPresent()){
-            map.addAttribute("patientList", patient.get());
+            map.addAttribute("patient", patient.get());
         } else {
             throw new RuntimeException("The patient is not found");
         }
+
+        return "patient";
     }
 
 }
