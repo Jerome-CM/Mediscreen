@@ -9,16 +9,7 @@ import java.util.Date;
 
 @Data
 @Document(collection = "patient")
-public class Patient {
-
-    @Id
-    private Long id;
-
-    @NotNull
-    private String firstname;
-
-    @NotNull
-    private String lastname;
+public class Patient extends Model {
 
     @NotNull
     private Date birthdate;
@@ -28,13 +19,6 @@ public class Patient {
 
     private String address;
 
-    private String phone;
 
 
-    public Patient(String firstname, String lastname, Date birthdate, String sex) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.birthdate = birthdate;
-        this.sex = sex;
-    }
 }

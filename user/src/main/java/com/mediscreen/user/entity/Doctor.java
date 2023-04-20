@@ -7,19 +7,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @Document(collection = "doctor")
-public class Doctor {
+public class Doctor extends Model{
 
-    @Id
-    private Long id;
-
-    @NotNull
-    private String firstname;
-
-    @NotNull
-    private String lastname;
-
-    public Doctor(String firstname, String lastname) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-    }
 }
