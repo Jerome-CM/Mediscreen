@@ -15,7 +15,7 @@ public class Patient extends Model {
     private Date birthdate;
 
     @NotNull
-    private String sex;
+    private Sex sex;
 
     private String address;
 

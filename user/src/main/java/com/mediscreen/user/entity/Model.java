@@ -24,5 +24,8 @@ public abstract class Model {
     @NotNull
     private String password;
 
+    @NotNull
+    private Profil profil;
+
 
 }
