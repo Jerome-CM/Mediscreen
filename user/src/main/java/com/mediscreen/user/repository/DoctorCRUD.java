@@ -9,6 +9,6 @@ import java.util.Optional;
 @Repository
 public interface DoctorCRUD extends MongoRepository<Doctor, Long> {
 
-    public Optional<Doctor> findDoctorByFirstname(String firstname);
+
 
 }
