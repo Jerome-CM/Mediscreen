@@ -1,7 +1,7 @@
 package com.mediscreen.user.entity;
 
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotNull;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
@@ -10,22 +10,10 @@ public abstract class Model {
     @Id
     private Long id;
 
-    @NotNull
+    @NotNull(message = "Firstname is mandatory")
     private String firstname;
 
-    @NotNull
+    @NotNull(message = "Lastname is mandatory")
     private String lastname;
-
-    private String phone;
-
-    @NotNull
-    private String login;
-
-    @NotNull
-    private String password;
-
-    @NotNull
-    private Profil profil;
-
 
 }

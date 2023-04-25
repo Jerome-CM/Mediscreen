@@ -1,24 +1,24 @@
 package com.mediscreen.user.entity;
 
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotNull;
+import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.util.Date;
 
 @Data
 @Document(collection = "patient")
 public class Patient extends Model {
 
     @NotNull
-    private Date birthdate;
+    @JsonFormat(pattern = "dd-MM-yyyy")
+    private String birthdate;
 
-    @NotNull
+    @NotNull(message = "Sex is mandatory")
     private Sex sex;
 
     private String address;
 
-
+    private String phone;
 
 }
