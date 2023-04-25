@@ -13,7 +13,7 @@
         <tr>
             <th>firstname</th>
             <th>Lastname</th>
-            <th>Doctor</th>
+            <th>Birthdate</th>
             <th>Action</th>
         </tr>
         </thead>
@@ -21,10 +21,11 @@
         <tr th:each="patient : ${patients}">
             <td th:text="${patient.firstname}"></td>
             <td th:text="${patient.lastname}"></td>
-            <td th:text="${patient.doctor}"></td>
+            <td th:text="${patient.birthdate}"></td>
             <td style="width: 15%" class="text-center">
-                <a th:href="@{/patient/update/{id}(id=${patient.id})}">Edit</a>&nbsp;|
-                <a th:href="@{/patient/delete/{id}(id=${patient.id})}">Delete</a>
+                 <!--TODO id = login ?-->
+                <a th:href="@{/patient/{id}(id=${patient.id})}">Consulter</a>&nbsp; | &nbsp;
+                <a th:href="@{/patientUpdate/{id}(id=${patient.id})}">Edit</a>
             </td>
         </tr>
         </tbody>
