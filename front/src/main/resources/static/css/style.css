@@ -3,3 +3,10 @@
     font-family: Impact, math;
 }
 
+input[type="text"]{
+    width: 200px;
+    box-shadow: 0 0 6px darkgrey;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
