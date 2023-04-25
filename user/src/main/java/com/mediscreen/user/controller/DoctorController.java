@@ -1,13 +1,12 @@
 package com.mediscreen.user.controller;
 
+import com.mediscreen.user.dto.Response;
 import com.mediscreen.user.service.DoctorService;
-import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class DoctorController {
 
     private final DoctorService doctorService;
@@ -16,13 +15,13 @@ public class DoctorController {
         this.doctorService = doctorService;
     }
 
-    @GetMapping(value="/login")
-    public String getLogin(){
-        return "login";
+    @PostMapping(value="/register")
+    Response saveUser(HttpServletRequest request){
+        return doctorService.saveDoctor(request);
     }
 
     @PostMapping(value="/connexion")
     public void connexion(HttpServletRequest request){
-        doctorService.findDoctorByFirstname(request);
+        doctorService.findDoctorByLogin(request);
     }
 }
