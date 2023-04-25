@@ -1,21 +1,28 @@
 package proxies;
 
-import beans.PatientBean;
+import com.mediscreen.user.dto.Response;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 
-//TODO Dependance
 @FeignClient(name = "user", url = "localhost:9001")
 public interface UserProxy {
+    @PostMapping(value="/addPatient")
+    Response addPatient(HttpServletRequest request);
+
+    // Create by intelliJ, not mapping ?
+    Response updatePatient(HttpServletRequest request);
 
 
-    // TODO Faire 2 proxy ou mettre les docteur aussi dans celui-la ?
     @GetMapping(value="/patientList")
-    List<PatientBean> getPatientsList();
+    Response getPatientsList();
 
-    @GetMapping(value="/patient/{id}")
-    PatientBean getPatient(@PathVariable("id") long id);
+    @GetMapping(value="/patient/{firstname}{lastname}{birthdate}")
+    Response getPatient(@RequestParam("firstname") String firstname,
+                        @RequestParam("lastname") String lastname,
+                        @RequestParam("birthdate") String birthdate);
 
 }
