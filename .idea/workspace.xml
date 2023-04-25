@@ -5,42 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e68f744-ab90-457b-98a1-214d06bac841" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/front/src/main/java/beans/DoctorBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/main/java/beans/PatientBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/main/java/controller/PatientController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/main/java/controller/homeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/main/java/proxies/UserProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/main/resources/static/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/main/resources/templates/addPatient.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/main/resources/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/main/resources/templates/patient.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/main/resources/templates/patientList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/9/09a6b7349600407346f0eac56ac60e6939f55eb3" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/9/09a6b7349600407346f0eac56ac60e6939f55eb3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/d/1d822a649d819c6dec213b095706780267cc8ec6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/3/23f889ed75d0be121532c70ec8711112e522adc3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/f/2f8be77c8aff8b0a9a795737c36dbd0759daa225" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/7/47680d6d10677bdee69467079e7380d66cd161d4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/c/7c77f68139524fd59de1150d625cd529d41f5e4d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/f/9f3a10c14d6a9c3ff0dba6c272fe903163845087" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/1/b11175cbb272edb38289f5bcc260e61af0aacaae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/9/09a6b7349600407346f0eac56ac60e6939f55eb3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/0/10c71434667696492d7d291b55835df9ac933530" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/2/42a69c6b09eb54c55c7d613dfd654f44dc93ff99" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/d/cdfe2e323fad8b1bcfe52f68e21783f120cd711e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/4/f4f62c2650b94dd255cda70294c712f94be766c7" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/d/1d822a649d819c6dec213b095706780267cc8ec6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/3/23f889ed75d0be121532c70ec8711112e522adc3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/f/2f8be77c8aff8b0a9a795737c36dbd0759daa225" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/7/47680d6d10677bdee69467079e7380d66cd161d4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/c/7c77f68139524fd59de1150d625cd529d41f5e4d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/f/9f3a10c14d6a9c3ff0dba6c272fe903163845087" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/b/1/b11175cbb272edb38289f5bcc260e61af0aacaae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/9/09a6b7349600407346f0eac56ac60e6939f55eb3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/0/10c71434667696492d7d291b55835df9ac933530" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/2/42a69c6b09eb54c55c7d613dfd654f44dc93ff99" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/c/d/cdfe2e323fad8b1bcfe52f68e21783f120cd711e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/f/4/f4f62c2650b94dd255cda70294c712f94be766c7" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/front/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/main/java/com/mediscreen/front/FrontApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/main/java/com/mediscreen/front/FrontApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/mediscreen/user/controller/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/mediscreen/user/controller/DoctorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/mediscreen/user/controller/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/mediscreen/user/controller/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/mediscreen/user/repository/DoctorCRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/mediscreen/user/repository/DoctorCRUD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/mediscreen/user/repository/PatientCRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/mediscreen/user/repository/PatientCRUD.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/src/main/java/com/mediscreen/user/service/DoctorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/mediscreen/user/service/DoctorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/mediscreen/user/service/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/mediscreen/user/service/PatientService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,9 +35,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Enum" />
+        <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -66,6 +51,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
         <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
     </option>
@@ -89,24 +75,29 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "corretto-11",
+    "last_opened_file_path": "/Users/jeromebouteveille/git/Mediscreen/front/src/main/resources/templates",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "editing.templates",
-    "spring.configuration.checksum": "b8c3d6cf265588e877194d31e2ff5bcc",
+    "spring.configuration.checksum": "8d79502c3cd9c5d375f9385e809cd5b5",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/front/src/main/resources/templates" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="beans" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.FrontApplication">
+  <component name="RunManager" selected="Spring Boot.PatientApplication">
     <configuration name="FrontApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.mediscreen.front.FrontApplication" />
       <module name="main" />
@@ -150,20 +141,35 @@
       <updated>1681469897341</updated>
       <workItem from="1681469899368" duration="14228000" />
       <workItem from="1681562262923" duration="10784000" />
-      <workItem from="1681661838332" duration="15082000" />
+      <workItem from="1681661838332" duration="23196000" />
+      <workItem from="1681983207028" duration="308000" />
+      <workItem from="1681983534777" duration="44000" />
+      <workItem from="1681983584417" duration="33275000" />
+      <workItem from="1682239055983" duration="33530000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/user/src/main/java/com/mediscreen/user/controller/PatientController.java</url>
-          <line>28</line>
-          <properties class="com.mediscreen.user.controller.PatientController" method="getPatient">
+          <line>47</line>
+          <properties class="com.mediscreen.user.controller.PatientController">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
