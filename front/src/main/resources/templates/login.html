@@ -2,19 +2,36 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/CSS/style.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/CSS/style.css}"/>
 </head>
 <body>
 
-    <h1>Login for doctor</h1>
+    <h1>Register</h1>
 
-    <form action="#" th:action="@{/connexion}" th:object="${connexionDTO}" method="post">
-        <label for="firstname"></label>
-        <input type="text" th:field="*{firstname}" id="firstname" placeholder="Firstname">
+    <form action="#" th:action="@{/register}" th:object="${RegisterDTO}" method="post">
+        <label for="firstname">Firstname</label>
+        <input type="text" th:field="*{firstname}" id="firstname" th:placeholder="Firstname">
         <p class="text-danger" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></p>
-        <label for="lastname"></label>
-        <input type="text" th:field="*{lastname}" id="lastname" placeholder="Lastname">
+        <label for="lastname">Lastname</label>
+        <input type="text" th:field="*{lastname}" id="lastname" th:placeholder="Lastname">
         <p class="text-danger" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></p>
+        <label for="loginRegister">Login</label>
+        <input type="text" th:field="*{login}" id="loginRegister" th:placeholder="Login">
+        <p class="text-danger" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></p>
+        <label for="passwordRegister">Password</label>
+        <input type="password" th:field="*{password}" id="passwordRegister" th:placeholder="Password">
+        <p class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+    </form>
+
+    <h1>Login</h1>
+
+    <form action="#" th:action="@{/connexion}" th:object="${ConnexionDTO}" method="post">
+        <label for="login">Login</label>
+        <input type="text" th:field="*{login}" id="login" th:placeholder="Login">
+        <p class="text-danger" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></p>
+        <label for="password">Password</label>
+        <input type="password" th:field="*{password}" id="password" th:placeholder="Password">
+        <p class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
     </form>
 </body>
 </html>
