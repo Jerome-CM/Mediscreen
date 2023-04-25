@@ -23,7 +23,7 @@
             <td th:text="${patient.lastname}"></td>
             <td th:text="${patient.birthdate}"></td>
             <td style="width: 15%" class="text-center">
-                 <!--TODO id = login ?-->
+                 <!--TODO id = first + last + birthdate-->
                 <a th:href="@{/patient/{id}(id=${patient.id})}">Consulter</a>&nbsp; | &nbsp;
                 <a th:href="@{/patientUpdate/{id}(id=${patient.id})}">Edit</a>
             </td>
