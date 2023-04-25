@@ -1,40 +1,52 @@
 package com.mediscreen.user.controller;
 
+import com.mediscreen.user.dto.PatientDTO;
+import com.mediscreen.user.dto.Response;
 import com.mediscreen.user.entity.Patient;
 import com.mediscreen.user.service.PatientService;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
+import javax.servlet.http.HttpServletRequest;
 
-@Controller
+
+@RestController
 public class PatientController {
 
     private final PatientService patientService;
-
 
     public PatientController(PatientService patientService) {
         this.patientService = patientService;
     }
 
-    @GetMapping(value="/patientList")
-    String getPatientsList(Model map){
-        map.addAttribute("patientsList", patientService.getPatientsList());
-        return "patientList";
+    @PostMapping(value="/addPatient")
+    Response addPatient(HttpServletRequest request){
+        return patientService.savePatient(request);
     }
 
-    @GetMapping(value="/patient/{id}")
-    String getPatient(Model map, @PathVariable long id){
-        Optional<Patient> patient = patientService.getPatientById(id);
-        if(patient.isPresent()){
-            map.addAttribute("patient", patient.get());
-        } else {
-            throw new RuntimeException("The patient is not found");
-        }
+    @PostMapping(value="/updatePatient")
+    Response updatePatient(HttpServletRequest request){
+        return patientService.updatePatient(request);
+    }
 
-        return "patient";
+    @GetMapping(value="/patientList")
+    Response getPatientsList(){
+        return patientService.getPatientsList();
+    }
+
+    @GetMapping(value="/patient/{firstname}{lastname}{birthdate}")
+    Response getPatient(@RequestParam("firstname") String firstname,
+                        @RequestParam("lastname") String lastname,
+                        @RequestParam("birthdate") String birthdate) {
+        return patientService.findPatient(firstname, lastname, birthdate);
+    }
+
+    @GetMapping(value="/updatePatient/{firstname}{lastname}{birthdate}")
+    Response getUpdatePatient(Model map,
+                                   @RequestParam("firstname") String firstname,
+                                   @RequestParam("lastname") String lastname,
+                                   @RequestParam("birthdate") String birthdate){
+        return patientService.findPatient(firstname, lastname, birthdate);
     }
 
 }
