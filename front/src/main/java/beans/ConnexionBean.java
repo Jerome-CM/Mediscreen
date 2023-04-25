@@ -1,14 +1,11 @@
-package com.mediscreen.user.dto;
+package beans;
 
-import com.mediscreen.user.entity.Profile;
 import lombok.Data;
 
 @Data
-public class ConnexionDTO {
+public class ConnexionBean {
 
     private String login;
     private String password;
-
-    private Profile profile;
 
 }

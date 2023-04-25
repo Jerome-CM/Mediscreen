@@ -1,9 +1,10 @@
-package com.mediscreen.user.dto;
+package beans;
 
+import com.mediscreen.user.dto.ConnexionDTO;
 import lombok.Data;
 
 @Data
-public class RegisterDTO extends ConnexionDTO{
+public class RegisterBean extends ConnexionBean {
 
     private String firstname;
 

@@ -9,8 +9,17 @@ public class DoctorBean {
     private String firstname;
     private String lastname;
 
-    public DoctorBean(String firstname, String lastname) {
+    private String login;
+
+    private String password;
+
+    public DoctorBean() {
+    }
+
+    public DoctorBean(String firstname, String lastname, String login, String password) {
         this.firstname = firstname;
         this.lastname = lastname;
+        this.login = login;
+        this.password = password;
     }
 }
