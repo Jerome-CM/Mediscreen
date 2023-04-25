@@ -1,9 +1,9 @@
 package com.mediscreen.user.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.mediscreen.user.entity.Sex;
 import lombok.Data;
 
-import java.util.Date;
 
 @Data
 public class PatientDTO {
@@ -12,7 +12,8 @@ public class PatientDTO {
 
     private String lastname;
 
-    private Date birthdate;
+    @JsonFormat(pattern = "dd-MM-yyyy")
+    private String birthdate;
 
     private Sex sex;
 

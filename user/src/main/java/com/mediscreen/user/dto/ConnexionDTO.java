@@ -3,9 +3,10 @@ package com.mediscreen.user.dto;
 import lombok.Data;
 
 @Data
-public class connexionDTO {
+public class ConnexionDTO {
 
     private String login;
     private String password;
+
 
 }
