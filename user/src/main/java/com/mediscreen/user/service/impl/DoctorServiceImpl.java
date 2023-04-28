@@ -1,31 +1,29 @@
-package com.mediscreen.user.service;
+package com.mediscreen.user.service.impl;
 
 import com.mediscreen.user.dto.DoctorDTO;
 import com.mediscreen.user.dto.Response;
 import com.mediscreen.user.entity.Doctor;
 import com.mediscreen.user.entity.EnumResponse;
 import com.mediscreen.user.repository.DoctorCRUD;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
+import com.mediscreen.user.service.DoctorService;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.net.HttpCookie;
 import java.util.Optional;
 
 @Service
 @Slf4j
-public class DoctorService {
+public class DoctorServiceImpl implements DoctorService {
 
     private final DoctorCRUD doctorCRUD;
 
    private final ModelMapper modelMapper;
 
-    public DoctorService(DoctorCRUD doctorCRUD, ModelMapper modelMapper) {
+    public DoctorServiceImpl(DoctorCRUD doctorCRUD, ModelMapper modelMapper) {
         this.doctorCRUD = doctorCRUD;
         this.modelMapper = modelMapper;
     }
@@ -34,7 +32,9 @@ public class DoctorService {
         log.info("--- Method findUserByLogin ---");
         Optional<Doctor> userOpt = doctorCRUD.findDoctorByLogin(login);
         if(userOpt.isPresent()){
-            return new Response(EnumResponse.OK, userOpt.get(), "");
+            DoctorDTO doctor = modelMapper.map(userOpt.get(), DoctorDTO.class);
+
+            return new Response(EnumResponse.OK, doctor, "");
         } else {
             return new Response(EnumResponse.ERROR, null, "User : " + login + " is unknown");
         }
@@ -77,7 +77,7 @@ public class DoctorService {
         log.info("--- Method auth ---");
         Response ifExist = findDoctorByLogin(doctorDTO.getLogin());
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        Doctor doctor = (Doctor) ifExist.getContent();
+        DoctorDTO doctor = (DoctorDTO) ifExist.getContent();
 
         boolean isPasswordMath = passwordEncoder.matches(doctorDTO.getPassword(), doctor.getPassword());
 

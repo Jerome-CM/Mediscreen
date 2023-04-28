@@ -1,10 +1,11 @@
-package com.mediscreen.user.service;
+package com.mediscreen.user.service.impl;
 
 import com.mediscreen.user.dto.PatientDTO;
 import com.mediscreen.user.dto.Response;
 import com.mediscreen.user.entity.EnumResponse;
 import com.mediscreen.user.entity.Patient;
 import com.mediscreen.user.repository.PatientCRUD;
+import com.mediscreen.user.service.PatientService;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -16,13 +17,13 @@ import java.util.Optional;
 
 @Service
 @Slf4j
-public class PatientService {
+public class PatientServiceImpl implements PatientService    {
 
     private final PatientCRUD patientCRUD;
 
     private final ModelMapper modelMapper;
 
-    public PatientService(PatientCRUD patientCRUD, ModelMapper modelMapper) {
+    public PatientServiceImpl(PatientCRUD patientCRUD, ModelMapper modelMapper) {
         this.patientCRUD = patientCRUD;
         this.modelMapper = modelMapper;
     }
@@ -78,7 +79,8 @@ public class PatientService {
         log.info("--- Method findPatient ---");
         Optional<Patient> userOpt = patientCRUD.findPatientById(id);
         if(userOpt.isPresent()){
-            return new Response(EnumResponse.OK, userOpt.get(), "");
+            PatientDTO patient = modelMapper.map(userOpt.get(), PatientDTO.class);
+            return new Response(EnumResponse.OK, patient, "");
         } else {
             return new Response(EnumResponse.ERROR, null, "Patient id : " + id + " is unknown");
         }
