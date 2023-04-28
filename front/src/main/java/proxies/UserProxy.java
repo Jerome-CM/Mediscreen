@@ -1,28 +1,27 @@
 package proxies;
 
-import com.mediscreen.user.dto.Response;
+import beans.ResponseBean;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import java.math.BigInteger;
 
-@FeignClient(name = "user", url = "localhost:9001")
+@FeignClient(name = "user", url = "${microservice.user}")
 public interface UserProxy {
     @PostMapping(value="/addPatient")
-    Response addPatient(HttpServletRequest request);
+    ResponseBean addPatient(HttpServletRequest request); // TODO Prendre le bean @ParamBody
 
-    // Create by intelliJ, not mapping ?
-    Response updatePatient(HttpServletRequest request);
+    @PostMapping(value="/updatePatient")
+    ResponseBean updatePatient(HttpServletRequest request);
 
 
     @GetMapping(value="/patientList")
-    Response getPatientsList();
+    ResponseBean getPatientsList();
 
-    @GetMapping(value="/patient/{firstname}{lastname}{birthdate}")
-    Response getPatient(@RequestParam("firstname") String firstname,
-                        @RequestParam("lastname") String lastname,
-                        @RequestParam("birthdate") String birthdate);
+    @GetMapping(value="/patient/{id}")
+    ResponseBean getPatient(@RequestParam("id") BigInteger id);
 
 }
