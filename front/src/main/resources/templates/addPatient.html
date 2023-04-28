@@ -20,8 +20,8 @@
       <p class="text-danger" th:if="${#fields.hasErrors('birthdate')}" th:errors="*{birthdate}"></p>
       <p><label for="sex">Sex :</label>
           <select th:field="sex" id="sex" required>
-              <option th:value="'Man'" th:text="Man"></option>
-              <option th:value="'Woman'" th:text="Woman"></option>
+              <option th:value="MAN" th:text="Man"></option>
+              <option th:value="WOMAN" th:text="Woman"></option>
           </select>
       <p class="text-danger" th:if="${#fields.hasErrors('sex')}" th:errors="*{sex}"></p>
       <p><label for="address">Address :</label>
