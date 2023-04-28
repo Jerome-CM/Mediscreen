@@ -4,9 +4,13 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.mediscreen.user.entity.Sex;
 import lombok.Data;
 
+import java.math.BigInteger;
+
 
 @Data
 public class PatientDTO {
+
+    private BigInteger id;
 
     private String firstname;
 

@@ -1,17 +1,18 @@
 package com.mediscreen.user.dto;
 
+import com.mediscreen.user.entity.EnumResponse;
 import lombok.Data;
 
 @Data
 public class Response {
 
-    private String status = "Ok";
+    private EnumResponse status;
 
     private Object content;
 
-    private String message = "";
+    private String message;
 
-    public Response(String status, Object content, String message) {
+    public Response(EnumResponse status, Object content, String message) {
         this.status = status;
         this.content = content;
         this.message = message;
