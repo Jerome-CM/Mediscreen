@@ -1,2 +1,7 @@
-package com.mediscreen.user.entity;public enum EnumResponse {
+package com.mediscreen.user.entity;
+
+public enum EnumResponse {
+
+    OK,
+    ERROR
 }
