@@ -1,11 +1,14 @@
 package beans;
 
-import com.mediscreen.user.entity.Sex;
+import entity.Sex;
 import lombok.Data;
+
+import java.math.BigInteger;
 
 @Data
 public class PatientBean {
-    private Long id;
+    private BigInteger id;
+
     private String firstname;
 
     private String lastname;
