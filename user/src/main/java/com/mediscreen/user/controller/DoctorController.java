@@ -1,11 +1,14 @@
 package com.mediscreen.user.controller;
 
+import com.mediscreen.user.dto.DoctorDTO;
 import com.mediscreen.user.dto.Response;
 import com.mediscreen.user.service.DoctorService;
-import javax.servlet.http.HttpServletRequest;
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+@Api("API for Doctor; Register and connexion endpoint.")
 @RestController
 public class DoctorController {
 
@@ -16,12 +19,12 @@ public class DoctorController {
     }
 
     @PostMapping(value="/register")
-    Response saveUser(HttpServletRequest request){
-        return doctorService.saveDoctor(request);
+    Response saveDoctor(@RequestBody DoctorDTO doctorDTO){
+        return doctorService.saveDoctor(doctorDTO);
     }
 
     @PostMapping(value="/connexion")
-    public void connexion(HttpServletRequest request){
-        doctorService.findDoctorByLogin(request);
+    Response connexion(@RequestBody DoctorDTO doctorDTO){
+        return doctorService.auth(doctorDTO);
     }
 }

@@ -2,14 +2,15 @@ package com.mediscreen.user.controller;
 
 import com.mediscreen.user.dto.PatientDTO;
 import com.mediscreen.user.dto.Response;
-import com.mediscreen.user.entity.Patient;
 import com.mediscreen.user.service.PatientService;
-import org.springframework.ui.Model;
+import com.mediscreen.user.service.impl.PatientServiceImpl;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
+import java.math.BigInteger;
 
-
+@Api("API for Patient; CRUD operations")
 @RestController
 public class PatientController {
 
@@ -20,33 +21,29 @@ public class PatientController {
     }
 
     @PostMapping(value="/addPatient")
-    Response addPatient(HttpServletRequest request){
-        return patientService.savePatient(request);
+    Response addPatient(@RequestBody PatientDTO patientDTO){
+        return patientService.savePatient(patientDTO);
     }
 
-    @PostMapping(value="/updatePatient")
-    Response updatePatient(HttpServletRequest request){
-        return patientService.updatePatient(request);
+    @PostMapping(value="/updatePatient/{id}")
+    Response updatePatient(@RequestBody PatientDTO patientDTO){
+        return patientService.updatePatient(patientDTO);
     }
 
+    @ApiOperation(value = "Return the list of all patients")
     @GetMapping(value="/patientList")
     Response getPatientsList(){
         return patientService.getPatientsList();
     }
 
-    @GetMapping(value="/patient/{firstname}{lastname}{birthdate}")
-    Response getPatient(@RequestParam("firstname") String firstname,
-                        @RequestParam("lastname") String lastname,
-                        @RequestParam("birthdate") String birthdate) {
-        return patientService.findPatient(firstname, lastname, birthdate);
+    @GetMapping(value="/patient/{id}")
+    Response getPatient(@PathVariable("id") BigInteger id) {
+        return patientService.findPatient(id);
     }
 
-    @GetMapping(value="/updatePatient/{firstname}{lastname}{birthdate}")
-    Response getUpdatePatient(Model map,
-                                   @RequestParam("firstname") String firstname,
-                                   @RequestParam("lastname") String lastname,
-                                   @RequestParam("birthdate") String birthdate){
-        return patientService.findPatient(firstname, lastname, birthdate);
+    @GetMapping(value="/updatePatient/{id}")
+    Response getUpdatePatient(@PathVariable("id") BigInteger id){
+        return patientService.findPatient(id);
     }
 
 }
