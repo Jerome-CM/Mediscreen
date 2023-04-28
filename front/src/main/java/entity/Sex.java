@@ -1,2 +1,7 @@
-package entity;public enum Sex {
+package entity;
+
+public enum Sex {
+
+    MAN,
+    WOMAN
 }
