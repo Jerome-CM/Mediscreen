@@ -1,8 +1,7 @@
 package controller;
 
-import beans.ConnexionBean;
-import beans.RegisterBean;
-import com.mediscreen.user.dto.Response;
+import beans.DoctorBean;
+import beans.ResponseBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,30 +22,30 @@ public class AuthController {
 
     @GetMapping(value="/")
     public String home(){
-        return "login";
+        return "home";
     }
 
     @GetMapping(value="register")
     public String getRegister(Model map){
-        map.addAttribute("ConnexionDTO", new ConnexionBean());
-        map.addAttribute("RegisterDTO", new RegisterBean());
+        map.addAttribute("ConnexionDTO", new DoctorBean());
+        map.addAttribute("RegisterDTO", new DoctorBean());
         return "login";
     }
 
     @GetMapping(value="login")
     public String getlogin(Model map){
-        map.addAttribute("ConnexionDTO", new ConnexionBean());
-        map.addAttribute("RegisterDTO", new RegisterBean());
+        map.addAttribute("ConnexionDTO", new DoctorBean());
+        map.addAttribute("RegisterDTO", new DoctorBean());
         return "login";
     }
 
     @PostMapping(value="login")
-    public Response login(HttpServletRequest request){
+    public ResponseBean login(HttpServletRequest request){
         return authProxy.login(request);
     }
 
     @PostMapping(value="register")
-    public Response register(HttpServletRequest request){
+    public ResponseBean register(HttpServletRequest request){
         return authProxy.register(request);
     }
 }
