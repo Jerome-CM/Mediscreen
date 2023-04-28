@@ -28,6 +28,11 @@ public class DoctorServiceImpl implements DoctorService {
         this.modelMapper = modelMapper;
     }
 
+    /**
+     *
+     * @param login
+     * @return Response
+     */
     public Response findDoctorByLogin(String login){
         log.info("--- Method findUserByLogin ---");
         Optional<Doctor> userOpt = doctorCRUD.findDoctorByLogin(login);
@@ -40,6 +45,11 @@ public class DoctorServiceImpl implements DoctorService {
         }
     }
 
+    /**
+     *
+     * @param doctorDTO
+     * @return Response
+     */
     public Response saveDoctor(DoctorDTO doctorDTO){
         log.info("--- Method saveUser ---");
         Response ifExist = findDoctorByLogin(doctorDTO.getLogin());
@@ -64,6 +74,12 @@ public class DoctorServiceImpl implements DoctorService {
         }
     }
 
+
+    /**
+     *
+     * @param id
+     * @return Doctor
+     */
     public Doctor getDoctorById(Long id){
         Optional<Doctor> doctor = doctorCRUD.findById(id);
         if(doctor.isPresent()){
@@ -73,6 +89,11 @@ public class DoctorServiceImpl implements DoctorService {
         }
     }
 
+    /**
+     *
+     * @param doctorDTO
+     * @return Response
+     */
     public Response auth(DoctorDTO doctorDTO){
         log.info("--- Method auth ---");
         Response ifExist = findDoctorByLogin(doctorDTO.getLogin());

@@ -28,9 +28,15 @@ public class PatientServiceImpl implements PatientService    {
         this.modelMapper = modelMapper;
     }
 
+    /**
+     *
+     * @param patientDTO
+     * @return Response
+     */
     public Response savePatient(PatientDTO patientDTO){
         log.info("--- Method savePatient");
 
+        // control mandatory attributes
         if(!patientDTO.getFirstname().isEmpty() &&
            !patientDTO.getLastname().isEmpty() &&
            !patientDTO.getBirthdate().isEmpty() &&
@@ -51,6 +57,11 @@ public class PatientServiceImpl implements PatientService    {
         }
     }
 
+    /**
+     *
+     * @param patientDTO
+     * @return Response
+     */
     public Response updatePatient(PatientDTO patientDTO){
         log.info("--- Method updatePatient");
 
@@ -75,6 +86,11 @@ public class PatientServiceImpl implements PatientService    {
 
     }
 
+    /**
+     *
+     * @param id
+     * @return Response
+     */
     public Response findPatient(BigInteger id){
         log.info("--- Method findPatient ---");
         Optional<Patient> userOpt = patientCRUD.findPatientById(id);
@@ -86,6 +102,10 @@ public class PatientServiceImpl implements PatientService    {
         }
     }
 
+    /**
+     *
+     * @return Response
+     */
     public Response getPatientsList(){
         List<PatientDTO> patientListDTO = new ArrayList<>();
         List<Patient> patients = patientCRUD.findAll();
