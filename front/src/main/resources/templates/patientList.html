@@ -3,33 +3,35 @@
 <head>
     <title>Patient List</title>
     <link rel="stylesheet" type="text/css" th:href="@{/CSS/style.css}" />
+    <div th:replace="~{policy.html}"></div>
 </head>
 <body>
 
     <h1>Patient List</h1>
 
-    <table>
-        <thead>
-        <tr>
-            <th>firstname</th>
-            <th>Lastname</th>
-            <th>Birthdate</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="patient : ${patients}">
-            <td th:text="${patient.firstname}"></td>
-            <td th:text="${patient.lastname}"></td>
-            <td th:text="${patient.birthdate}"></td>
-            <td style="width: 15%" class="text-center">
-                 <!--TODO id = first + last + birthdate-->
-                <a th:href="@{/patient/{id}(id=${patient.id})}">Consulter</a>&nbsp; | &nbsp;
-                <a th:href="@{/patientUpdate/{id}(id=${patient.id})}">Edit</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Birthdate</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="patient : ${patients}">
+                    <td th:text="${patient.firstname}"></td>
+                    <td th:text="${patient.lastname}"></td>
+                    <td th:text="${patient.birthdate}"></td>
+                    <td class="td-action">
+                         <!--TODO id = first + last + birthdate-->
+                        <a class="button_add_patient" th:href="@{/patient/{id}(id=${patient.id})}">Consult</a>&nbsp; | &nbsp;
+                        <a class="button_add_patient" th:href="@{/patientUpdate/{id}(id=${patient.id})}">Edit</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

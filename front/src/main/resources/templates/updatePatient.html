@@ -3,39 +3,41 @@
 <head>
     <title>Patient</title>
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <div th:replace="~{policy.html}"></div>
 </head>
 <body>
 
     <h1>Update Patient information's</h1>
 
-    <form action="#" th:action="@{/updatePatient}" th:object="${patient}">
-        <p><label for="firstname">Firstname :</label>
-            <input type="text" th:field="*{firstname}" id="firstname" th:placeholder="Firstname" th:value="*{firstname}" required></p>
-        <p class="text-danger" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></p>
-        <p><label for="lastname">Lastname :</label>
-            <input type="text" th:field="*{lastname}" id="lastname" th:placeholder="Lastname" th:value="*{lastname}" required></p>
-        <p class="text-danger" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></p>
-        <p><label for="birthdate">Birthdate :</label>
-            <input type="date" th:field="*{birthdate}" id="birthdate" th:value="*{birthdate}" required></p>
-        <p class="text-danger" th:if="${#fields.hasErrors('birthdate')}" th:errors="*{birthdate}"></p>
-        <p><label for="sex">Sex :</label>
-            <select th:field="*{sex}" id="sex" required>
-                <option th:value="MAN" th:text="Man"></option>
-                <option th:value="WOMAN" th:text="Woman"></option>
-            </select>
-        <p class="text-danger" th:if="${#fields.hasErrors('sex')}" th:errors="*{sex}"></p>
-        <p><label for="address">Address :</label>
-            <input type="text" th:field="*{address}" id="address" th:placeholder="Address" th:value="*{address}"></p>
-        <p class="text-danger" th:if="${#fields.hasErrors('phone')}" th:errors="*{address}"></p>
-        <p><label for="phone">Phone :</label>
-            <input type="text" th:field="*{phone}" id="phone" th:placeholder="Phone" th:value="*{phone}"></p>
-        <p class="text-danger" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p>
+    <div class="container oneCard">
+        <div class="card">
+            <form action="#" th:action="@{/updatePatient}" th:object="${patient}">
+                <p><label for="firstname">Firstname :</label>
+                    <input type="text" th:field="*{firstname}" id="firstname" th:placeholder="Firstname" th:value="*{firstname}" required></p>
+                <p class="text-danger" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></p>
+                <p><label for="lastname">Lastname :</label>
+                    <input type="text" th:field="*{lastname}" id="lastname" th:placeholder="Lastname" th:value="*{lastname}" required></p>
+                <p class="text-danger" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></p>
+                <p><label for="birthdate">Birthdate :</label>
+                    <input type="date" th:field="*{birthdate}" id="birthdate" th:value="*{birthdate}" required></p>
+                <p class="text-danger" th:if="${#fields.hasErrors('birthdate')}" th:errors="*{birthdate}"></p>
+                <p><label for="sex">Sex :</label>
+                    <select th:field="*{sex}" id="sex" required>
+                        <option th:value="MAN" th:text="Man"></option>
+                        <option th:value="WOMAN" th:text="Woman"></option>
+                    </select>
+                <p class="text-danger" th:if="${#fields.hasErrors('sex')}" th:errors="*{sex}"></p>
+                <p><label for="address">Address :</label>
+                    <input type="text" th:field="*{address}" id="address" th:placeholder="Address" th:value="*{address}"></p>
+                <p class="text-danger" th:if="${#fields.hasErrors('phone')}" th:errors="*{address}"></p>
+                <p><label for="phone">Phone :</label>
+                    <input type="text" th:field="*{phone}" id="phone" th:placeholder="Phone" th:value="*{phone}"></p>
+                <p class="text-danger" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p>
 
-        <input type="hidden" th:field="*{firstnameOld}" th:value="*{firstname}">
-        <input type="hidden" th:field="*{lastnameOld}" th:value="*{lastname}">
-        <input type="hidden" th:field="*{birthdateOld}"  th:value="*{birthdate}">
-        <p><button th:href="@{/patientList}">Return</button> &nbsp; <input type="submit" value="Update"></p>
-    </form>
-
+                <input type="hidden" th:field="*{id}" th:value="*{id}">
+                <p><a class="button_add_patient" th:href="@{/patientList}">Return</a> &nbsp; <input type="submit" value="Update"></p>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

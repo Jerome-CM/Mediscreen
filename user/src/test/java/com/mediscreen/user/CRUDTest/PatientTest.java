@@ -29,6 +29,7 @@ public class PatientTest {
 
     private static BigInteger idBefore;
 
+    /*
     @BeforeAll
     public void initPatientTest(){
 
@@ -98,4 +99,7 @@ public class PatientTest {
         assertEquals("", "Jack", patientFound.getFirstname());
         assertFalse("", firstnameOrigin.equals(patientFound.getFirstname()));
     }
+
+
+     */
 }

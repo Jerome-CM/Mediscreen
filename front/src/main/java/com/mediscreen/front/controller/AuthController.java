@@ -20,9 +20,10 @@ public class AuthController {
     }
 
     @GetMapping(value="/")
-
-    public String home(){
-        return "home";
+    public String getHome(Model map){
+        map.addAttribute("ConnexionDTO", new DoctorBean());
+        map.addAttribute("RegisterDTO", new DoctorBean());
+        return "login";
     }
 
     @GetMapping(value="register")

@@ -3,35 +3,42 @@
 <head>
     <title>Login</title>
     <link rel="stylesheet" type="text/css" th:href="@{/CSS/style.css}"/>
+    <div th:replace="~{policy.html}"></div>
 </head>
-<body>
+    <body>
 
-    <h1>Register</h1>
+    <h1>Mediscreen</h1>
 
-    <form action="#" th:action="@{/register}" th:object="${RegisterDTO}" method="post">
-        <label for="firstname">Firstname</label>
-        <input type="text" th:field="*{firstname}" id="firstname" th:placeholder="Firstname">
-        <p class="text-danger" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></p>
-        <label for="lastname">Lastname</label>
-        <input type="text" th:field="*{lastname}" id="lastname" th:placeholder="Lastname">
-        <p class="text-danger" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></p>
-        <label for="loginRegister">Login</label>
-        <input type="text" th:field="*{login}" id="loginRegister" th:placeholder="Login">
-        <p class="text-danger" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></p>
-        <label for="passwordRegister">Password</label>
-        <input type="password" th:field="*{password}" id="passwordRegister" th:placeholder="Password">
-        <p class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
-    </form>
+    <div class="container authForms">
 
-    <h1>Login</h1>
+        <div class="card">
+            <h2>Register</h2>
+            <form action="#" th:action="@{/register}" th:object="${RegisterDTO}" method="post">
+                <input type="text" th:field="*{firstname}" id="firstname" th:placeholder="Firstname">
+                <p class="text-danger" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></p>
+                <input type="text" th:field="*{lastname}" id="lastname" th:placeholder="Lastname">
+                <p class="text-danger" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></p>
+                <input type="text" th:field="*{login}" id="loginRegister" th:placeholder="Login">
+                <input type="password" th:field="*{password}" id="passwordRegister" th:placeholder="Password">
+                <p class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+                <br>
+                <input type="submit" value="Sign up">
+            </form>
+        </div>
 
-    <form action="#" th:action="@{/connexion}" th:object="${ConnexionDTO}" method="post">
-        <label for="login">Login</label>
-        <input type="text" th:field="*{login}" id="login" th:placeholder="Login">
-        <p class="text-danger" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></p>
-        <label for="password">Password</label>
-        <input type="password" th:field="*{password}" id="password" th:placeholder="Password">
-        <p class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
-    </form>
-</body>
+        <div class="separator"></div>
+
+        <div class="card" style="height:fit-content">
+            <h2>Login</h2>
+            <form action="#" th:action="@{/connexion}" th:object="${ConnexionDTO}" method="post">
+                <input type="text" th:field="*{login}" id="login" th:placeholder="Login">
+                <p class="text-danger" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></p>
+                <input type="password" th:field="*{password}" id="password" th:placeholder="Password">
+                <p class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+                <br>
+                <input type="submit" value="Sign in">
+            </form>
+        </div>
+    </div>
+    </body>
 </html>

@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Patient extends Model {
 
     @NotNull
-    @JsonFormat(pattern = "dd-MM-yyyy")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private String birthdate;
 
     @NotNull(message = "Sex is mandatory")

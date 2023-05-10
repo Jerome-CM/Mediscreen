@@ -2,7 +2,7 @@ version: '3'
 
 services:
   mongodb:
-    image: mongo #:4.2.2
+    image: mongo:4 #:4.2.2
     container_name: mongodb_container
     volumes:
       - /data/db
@@ -13,22 +13,31 @@ services:
       #MYSQL_ROOT_USERNAME: root
       #MYSQL_ROOT_PASSWORD: root
     restart: on-failure
+    networks:
+      - default
 
   user:
+    depends_on:
+      - mongodb
     image: ms-user
     container_name: user_container
     environment:
-      SPRING_DATASOURCE_URL: mongodb://localhost:27017/mediscreen
+      - "spring_data_mongodb_host=mongodb"
+      - "mediscreen_front_cross_origin=http://127.0.0.1"
+      #- "rapport_cross=http://ms-rapport:9000"
+      - "SPRING_DATASOURCE_URL: mongodb://127.0.0.1:27017/mediscreen"
       #SPRING_DATASOURCE_USERNAME: root
       #SPRING_DATASOURCE_PASSWORD: root  Pas d'indentifiant pour la base
-      SPRING_DATABASE_PORT: 27017
-    depends_on:
-      - mongodb
+      - "SPRING_DATABASE_PORT: 27017"
     ports:
       - "9001:9001"
+    networks:
+          - default
 
   front:
     image : ms-front
     container_name: front_container
     ports :
       - "9000:9000"
+    networks:
+      - default
