@@ -13,7 +13,7 @@ import java.math.BigInteger;
 @FeignClient(name = "user", url = "${microservice.user}")
 public interface UserProxy {
     @PostMapping(value="/addPatient")
-    ResponseBean addPatient(HttpServletRequest request); // TODO Prendre le bean @ParamBody
+    ResponseBean addPatient(HttpServletRequest request);
 
     @PostMapping(value="/updatePatient")
     ResponseBean updatePatient(HttpServletRequest request);

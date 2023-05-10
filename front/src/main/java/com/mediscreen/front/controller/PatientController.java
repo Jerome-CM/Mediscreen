@@ -40,12 +40,8 @@ public class PatientController {
         userProxy.addPatient(request);
     }
 
-    @PostMapping(value="/updatePatient")
-    public void updatePatient(HttpServletRequest request){
-        userProxy.updatePatient(request);
-    }
 
-    @GetMapping(value="/patient/{id}")
+    @GetMapping(value="/patientUpdate/{id}")
     public String getPatientDetails(Model map, @PathVariable BigInteger id){
         ResponseBean response = userProxy.getPatient(id);
         if(response.getStatus().equals(EnumResponse.OK)) {
@@ -55,6 +51,11 @@ public class PatientController {
             map.addAttribute("response", response);
         }
         return "updatePatient";
+    }
+
+    @PostMapping(value="/updatePatient")
+    public void updatePatient(HttpServletRequest request){
+        userProxy.updatePatient(request);
     }
 
     @GetMapping(value="/patientList")
@@ -69,5 +70,16 @@ public class PatientController {
         return "patientList";
     }
 
+    @GetMapping(value="patient/{id}")
+    public String getPatientInfo(Model map, @PathVariable BigInteger id){
+        ResponseBean response = userProxy.getPatient(id);
+        if(response.getStatus().equals(EnumResponse.OK)) {
+            PatientBean patientBean = modelMapper.map(response.getContent(), PatientBean.class);
+            map.addAttribute("patient", patientBean);
+        } else {
+            map.addAttribute("response", response);
+        }
+        return "patient";
+    }
 
 }
