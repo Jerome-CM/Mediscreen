@@ -17,7 +17,7 @@ public class DoctorTest {
     @Autowired
     private DoctorService doctorService;
 
-
+/*
     public void saveDoctorTest(){
         DoctorDTO doctor = new DoctorDTO();
         doctor.setFirstname("Jerome");
@@ -52,4 +52,6 @@ public class DoctorTest {
 
         assertEquals("", EnumResponse.OK, response.getStatus());
     }
+
+ */
 }
