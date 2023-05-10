@@ -3,19 +3,24 @@
 <head>
     <title>Patient</title>
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <div th:replace="~{policy.html}"></div>
 </head>
 <body>
 
     <h1>Patient Details</h1>
+    <a th:href="@{/patientList}" class="button_add_patient">Return to list</a>
+    <div class="container oneCard">
 
-    <div>
-        <p>Firstname : <span th:text="*{patient.firstname}"></span></p>
-        <p>Lastname : <span th:text="*{patient.lastname}"></span></p>
-        <p>Sex : <span th:text="*{patient.sex}"></span></p>
-        <p>Birthdate : <span th:text="*{patient.birthdate}"></span></p>
-        <p>Address : <span th:text="*{patient.address}"></span></p>
-        <p>Phone : <span th:text="*{patient.phone}"></span></p>
+        <div class="card">
+            <div>
+                <p>Firstname : <span th:text="*{patient.firstname}"></span></p>
+                <p>Lastname : <span th:text="*{patient.lastname}"></span></p>
+                <p>Sex : <span th:text="*{patient.sex}"></span></p>
+                <p>Birthdate : <span th:text="*{patient.birthdate}"></span></p>
+                <p>Address : <span th:text="*{patient.address}"></span></p>
+                <p>Phone : <span th:text="*{patient.phone}"></span></p>
+            </div>
+        </div>
     </div>
-
 </body>
 </html>

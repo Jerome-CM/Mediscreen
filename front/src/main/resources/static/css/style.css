@@ -2,10 +2,120 @@
     box-sizing: border-box;
 }
 
-input[type="text"]{
-    width: 200px;
-    box-shadow: 0 0 6px darkgrey;
-    border-radius: 5px;
-    padding: 5px 10px;
+html{
+    background-color: #f3f3f3;
+    font-family: 'Roboto', sans-serif;
 }
 
+.container{
+    position: relative;
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+h1{
+    position: relative;
+    font-size: 70px;
+    text-align: center;
+    color: #29cb29;
+
+}
+
+.oneCard{
+    justify-content: center!important;
+}
+
+.card{
+    box-shadow: 0 0 6px darkgrey;
+    border-radius: 5px;
+    text-align: center;
+    border: none;
+    padding: 8px;
+    background-color: #FFF;
+}
+
+
+
+.authForms{
+    transform: translateY(70%);
+}
+
+
+.separator{
+    border-left: 2px solid grey;
+    width: 1px;
+    height: auto;
+}
+
+input[type="text"], input[type="password"]{
+    width: 80%;
+    box-shadow: 0 0 4px darkgrey;
+    border-radius: 3px;
+    padding: 5px 10px;
+    border:none;
+    margin: 6px 0;
+}
+input[type="submit"]{
+    background-color: #29cb29;
+    color:#FFFFFF;
+    padding: 5px 15px;
+    margin: 6px 0;
+    border:none;
+    font-size:22px;
+    border-radius: 4px;
+}
+
+.button_add_patient{
+    background-color: grey;
+    color:#FFFFFF;
+    padding: 5px 15px;
+    margin: 6px 0;
+    border:none;
+    font-size:22px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.text-danger{
+    color: red;
+}
+
+table{
+    width: 100%;
+}
+
+table thead tr{
+    background-color: #29cb29;
+    color: #FFFFFF;
+}
+
+table thead tr th{
+    padding: 8px;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: #d7d7d7;
+}
+
+table, th,td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table tr td{
+    text-align: center;
+    border: 0.25px solid grey;
+    padding: 6px;
+}
+.td-action{
+    width: 20%;
+}
+.td-action a {
+    text-decoration: none;
+    color: #FFF;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 2px 5px;
+}

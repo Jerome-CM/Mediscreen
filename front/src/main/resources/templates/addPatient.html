@@ -3,36 +3,39 @@
 <head>
     <title>Add a new patient</title>
     <link rel="stylesheet" type="text/css" th:href="@{/CSS/style.css}" />
+    <div th:replace="~{policy.html}"></div>
 </head>
 <body>
-
     <h1>Add a new patient</h1>
 
-  <form action="#" th:action="@{/addPatient}" th:object="${patient}">
-      <p><label for="firstname">Firstname :</label>
-      <input type="text" th:field="*{firstname}" id="firstname" th:placeholder="Firstname" required></p>
-      <p class="text-danger" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></p>
-      <p><label for="lastname">Lastname :</label>
-      <input type="text" th:field="*{lastname}" id="lastname" th:placeholder="Lastname" required></p>
-      <p class="text-danger" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></p>
-      <p><label for="birthdate">Birthdate :</label>
-      <input type="date" th:field="*{birthdate}" id="birthdate" required></p>
-      <p class="text-danger" th:if="${#fields.hasErrors('birthdate')}" th:errors="*{birthdate}"></p>
-      <p><label for="sex">Sex :</label>
-          <select th:field="*{sex}" id="sex" required>
-              <option th:value="MAN" th:text="Man"></option>
-              <option th:value="WOMAN" th:text="Woman"></option>
-          </select>
-      <p class="text-danger" th:if="${#fields.hasErrors('sex')}" th:errors="*{sex}"></p>
-      <p><label for="address">Address :</label>
-      <input type="text" th:field="*{address}" id="address" th:placeholder="Address"></p>
-      <p class="text-danger" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p>
-      <p><label for="phone">Phone :</label>
-      <input type="text" th:field="*{phone}" id="phone" th:placeholder="Phone"></p>
-      <p class="text-danger" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p>
+    <div class="container oneCard">
+        <div class="card">
+              <form action="#" th:action="@{/addPatient}" th:object="${patient}" method="post">
+                  <p><label for="firstname">Firstname :</label>
+                  <input type="text" th:field="*{firstname}" id="firstname" th:placeholder="Firstname" required></p>
+                  <p class="text-danger" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></p>
+                  <p><label for="lastname">Lastname :</label>
+                  <input type="text" th:field="*{lastname}" id="lastname" th:placeholder="Lastname" required></p>
+                  <p class="text-danger" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></p>
+                  <p><label for="birthdate">Birthdate :</label>
+                  <input type="date" th:field="*{birthdate}" id="birthdate" required></p>
+                  <p class="text-danger" th:if="${#fields.hasErrors('birthdate')}" th:errors="*{birthdate}"></p>
+                  <p><label for="sex">Sex :</label>
+                      <select th:field="*{sex}" id="sex" required>
+                          <option th:value="MAN" th:text="Man"></option>
+                          <option th:value="WOMAN" th:text="Woman"></option>
+                      </select>
+                  <p class="text-danger" th:if="${#fields.hasErrors('sex')}" th:errors="*{sex}"></p>
+                  <p><label for="address">Address :</label>
+                  <input type="text" th:field="*{address}" id="address" th:placeholder="Address"></p>
+                  <p class="text-danger" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p>
+                  <p><label for="phone">Phone :</label>
+                  <input type="text" th:field="*{phone}" id="phone" th:placeholder="Phone"></p>
+                  <p class="text-danger" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p>
 
-      <p><button th:href="@{/patientList}">Return</button> &nbsp; <input type="submit" value="Add"></p>
-  </form>
-
+                  <p><a class="button_add_patient" th:href="@{/patientList}">Return</a> &nbsp; | &nbsp;<input type="submit" value="Add"></p>
+              </form>
+        </div>
+    </div>
 </body>
 </html>
