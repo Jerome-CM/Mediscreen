@@ -1,6 +1,7 @@
 package com.mediscreen.user.controller;
 
-import com.mediscreen.user.dto.DoctorDTO;
+import com.mediscreen.user.dto.ConnexionDTO;
+import com.mediscreen.user.dto.RegisterDTO;
 import com.mediscreen.user.dto.Response;
 import com.mediscreen.user.service.DoctorService;
 import io.swagger.annotations.Api;
@@ -19,12 +20,12 @@ public class DoctorController {
     }
 
     @PostMapping(value="/register")
-    Response saveDoctor(@RequestBody DoctorDTO doctorDTO){
-        return doctorService.saveDoctor(doctorDTO);
+    Response saveDoctor(@RequestBody RegisterDTO register){
+        return doctorService.saveDoctor(register);
     }
 
-    @PostMapping(value="/connexion")
-    Response connexion(@RequestBody DoctorDTO doctorDTO){
-        return doctorService.auth(doctorDTO);
+    @PostMapping(value="/login")
+    Response connexion(@RequestBody ConnexionDTO co){
+        return doctorService.auth(co);
     }
 }

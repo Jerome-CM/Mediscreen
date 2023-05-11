@@ -9,7 +9,10 @@
 
     <h1>Patient List</h1>
 
+    <a th:href="@{/addPatient}" class="button_add_patient space" >Add new patient</a>
+
     <div class="container">
+
         <table>
             <thead>
                 <tr>
@@ -25,7 +28,6 @@
                     <td th:text="${patient.lastname}"></td>
                     <td th:text="${patient.birthdate}"></td>
                     <td class="td-action">
-                         <!--TODO id = first + last + birthdate-->
                         <a class="button_add_patient" th:href="@{/patient/{id}(id=${patient.id})}">Consult</a>&nbsp; | &nbsp;
                         <a class="button_add_patient" th:href="@{/patientUpdate/{id}(id=${patient.id})}">Edit</a>
                     </td>

@@ -15,6 +15,10 @@ html{
     justify-content: space-between;
 }
 
+.space {
+    line-height: 3;
+}
+
 h1{
     position: relative;
     font-size: 70px;

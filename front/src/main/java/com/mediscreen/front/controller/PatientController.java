@@ -36,8 +36,14 @@ public class PatientController {
     }
 
     @PostMapping(value="/addPatient")
-    public void addPatient(HttpServletRequest request){
-        userProxy.addPatient(request);
+    public String addPatient(PatientBean patient){
+        ResponseBean response = userProxy.addPatient(patient);
+        if(response.getStatus().equals(EnumResponse.OK)){
+            return "redirect:/patientList";
+        } else {
+            return "addPatient";
+        }
+
     }
 
 
@@ -54,8 +60,13 @@ public class PatientController {
     }
 
     @PostMapping(value="/updatePatient")
-    public void updatePatient(HttpServletRequest request){
-        userProxy.updatePatient(request);
+    public String updatePatient(PatientBean patient){
+        ResponseBean response = userProxy.updatePatient(patient);
+        if(response.getStatus().equals(EnumResponse.OK)){
+            return "redirect:/patientList";
+        } else {
+            return "addPatient";
+        }
     }
 
     @GetMapping(value="/patientList")

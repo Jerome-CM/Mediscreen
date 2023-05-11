@@ -2,6 +2,7 @@ package com.mediscreen.user.controller;
 
 import com.mediscreen.user.dto.PatientDTO;
 import com.mediscreen.user.dto.Response;
+import com.mediscreen.user.entity.EnumResponse;
 import com.mediscreen.user.service.PatientService;
 import com.mediscreen.user.service.impl.PatientServiceImpl;
 import io.swagger.annotations.Api;
@@ -21,11 +22,11 @@ public class PatientController {
     }
 
     @PostMapping(value="/addPatient")
-    Response addPatient(@RequestBody PatientDTO patientDTO){
+    Response addPatient(@RequestBody PatientDTO patientDTO){ //
         return patientService.savePatient(patientDTO);
     }
 
-    @PostMapping(value="/updatePatient/{id}")
+    @PostMapping(value="/updatePatient")
     Response updatePatient(@RequestBody PatientDTO patientDTO){
         return patientService.updatePatient(patientDTO);
     }

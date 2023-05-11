@@ -11,7 +11,7 @@
 
     <div class="container oneCard">
         <div class="card">
-            <form action="#" th:action="@{/updatePatient}" th:object="${patient}">
+            <form action="#" th:action="@{/updatePatient}" th:object="${patient}" method="post">
                 <p><label for="firstname">Firstname :</label>
                     <input type="text" th:field="*{firstname}" id="firstname" th:placeholder="Firstname" th:value="*{firstname}" required></p>
                 <p class="text-danger" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></p>

@@ -1,20 +1,20 @@
 package com.mediscreen.front.proxies;
 
 
+import com.mediscreen.front.beans.ConnexionBean;
+import com.mediscreen.front.beans.RegisterBean;
 import com.mediscreen.front.beans.ResponseBean;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import javax.servlet.http.HttpServletRequest;
 
 
 @FeignClient(name = "user", url = "${microservice.user}")
 public interface AuthProxy {
 
     @PostMapping(value="register")
-    ResponseBean register(HttpServletRequest request);
+    ResponseBean register(RegisterBean register);
 
     @PostMapping(value="login")
-    ResponseBean login(HttpServletRequest request);
+    ResponseBean login(ConnexionBean co);
 
 }

@@ -1,6 +1,8 @@
 package com.mediscreen.user.service.impl;
 
+import com.mediscreen.user.dto.ConnexionDTO;
 import com.mediscreen.user.dto.DoctorDTO;
+import com.mediscreen.user.dto.RegisterDTO;
 import com.mediscreen.user.dto.Response;
 import com.mediscreen.user.entity.Doctor;
 import com.mediscreen.user.entity.EnumResponse;
@@ -50,18 +52,18 @@ public class DoctorServiceImpl implements DoctorService {
      * @param doctorDTO
      * @return Response
      */
-    public Response saveDoctor(DoctorDTO doctorDTO){
+    public Response saveDoctor(RegisterDTO register){
         log.info("--- Method saveUser ---");
-        Response ifExist = findDoctorByLogin(doctorDTO.getLogin());
+        Response ifExist = findDoctorByLogin(register.getLogin());
         if(ifExist.getStatus().equals(EnumResponse.OK)){
-            return new Response(EnumResponse.ERROR, null, "User : " + doctorDTO.getLogin() + " is already taken");
+            return new Response(EnumResponse.ERROR, null, "User : " + register.getLogin() + " is already taken");
         } else {
 
             PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-            Doctor doctor = modelMapper.map(doctorDTO, Doctor.class);
+            Doctor doctor = modelMapper.map(register, Doctor.class);
 
-            doctor.setPassword(passwordEncoder.encode(doctorDTO.getPassword()));
+            doctor.setPassword(passwordEncoder.encode(register.getPassword()));
 
             try{
                 doctorCRUD.save(doctor);
@@ -91,16 +93,16 @@ public class DoctorServiceImpl implements DoctorService {
 
     /**
      *
-     * @param doctorDTO
+     * @param co
      * @return Response
      */
-    public Response auth(DoctorDTO doctorDTO){
+    public Response auth(ConnexionDTO co){
         log.info("--- Method auth ---");
-        Response ifExist = findDoctorByLogin(doctorDTO.getLogin());
+        Response ifExist = findDoctorByLogin(co.getLogin());
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         DoctorDTO doctor = (DoctorDTO) ifExist.getContent();
 
-        boolean isPasswordMath = passwordEncoder.matches(doctorDTO.getPassword(), doctor.getPassword());
+        boolean isPasswordMath = passwordEncoder.matches(co.getPassword(), doctor.getPassword());
 
         if(ifExist.getStatus().equals(EnumResponse.OK) && isPasswordMath){
             return new Response(EnumResponse.OK, doctor, "Auth ok ");
