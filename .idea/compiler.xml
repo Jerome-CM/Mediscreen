@@ -8,16 +8,19 @@
         <outputRelativeToContentRoot value="true" />
         <module name="user" />
         <module name="front" />
+        <module name="notes" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="front" target="11" />
+      <module name="notes" target="11" />
       <module name="user" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="front" options="-parameters" />
+      <module name="notes" options="-parameters" />
       <module name="user" options="-parameters" />
     </option>
   </component>

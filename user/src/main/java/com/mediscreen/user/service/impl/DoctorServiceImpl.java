@@ -15,6 +15,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Optional;
 
 @Service
@@ -49,8 +51,8 @@ public class DoctorServiceImpl implements DoctorService {
 
     /**
      *
-     * @param doctorDTO
-     * @return Response
+     * @param register
+     * @return
      */
     public Response saveDoctor(RegisterDTO register){
         log.info("--- Method saveUser ---");
@@ -102,9 +104,10 @@ public class DoctorServiceImpl implements DoctorService {
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         DoctorDTO doctor = (DoctorDTO) ifExist.getContent();
 
-        boolean isPasswordMath = passwordEncoder.matches(co.getPassword(), doctor.getPassword());
+        boolean isPasswordMatch = passwordEncoder.matches(co.getPassword(), doctor.getPassword());
 
-        if(ifExist.getStatus().equals(EnumResponse.OK) && isPasswordMath){
+        if(ifExist.getStatus().equals(EnumResponse.OK) && isPasswordMatch){
+
             return new Response(EnumResponse.OK, doctor, "Auth ok ");
         } else {
             return new Response(EnumResponse.ERROR, null, "Bad credentials");

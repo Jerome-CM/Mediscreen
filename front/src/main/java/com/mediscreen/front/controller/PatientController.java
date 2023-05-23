@@ -3,29 +3,33 @@ package com.mediscreen.front.controller;
 import com.mediscreen.front.beans.PatientBean;
 import com.mediscreen.front.beans.ResponseBean;
 import com.mediscreen.front.entity.EnumResponse;
+import com.mediscreen.front.proxies.NoteProxy;
 import com.mediscreen.front.proxies.UserProxy;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
-import javax.servlet.http.HttpServletRequest;
 import java.math.BigInteger;
 import java.util.List;
 
 @Controller
+@Slf4j
 public class PatientController {
 
     private final UserProxy userProxy;
 
+    private final NoteProxy noteProxy;
+
     private final ModelMapper modelMapper;
 
-    public PatientController(UserProxy userProxy, ModelMapper modelMapper) {
+    public PatientController(UserProxy userProxy, NoteProxy noteProxy, ModelMapper modelMapper) {
         this.userProxy = userProxy;
+        this.noteProxy = noteProxy;
         this.modelMapper = modelMapper;
     }
 
@@ -89,6 +93,13 @@ public class PatientController {
             map.addAttribute("patient", patientBean);
         } else {
             map.addAttribute("response", response);
+        }
+
+
+        // Add all notes
+        ResponseBean responseNote = noteProxy.getAllNoteByPatientId(id);
+        if(responseNote.getStatus().equals(EnumResponse.OK)){
+            map.addAttribute("noteList", responseNote.getContent());
         }
         return "patient";
     }

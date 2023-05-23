@@ -5,15 +5,7 @@ i
 9user/src/main/java/com/mediscreen/user/entity/Doctor.java,4/7/47680d6d10677bdee69467079e7380d66cd161d4
 r
 Buser/src/main/java/com/mediscreen/user/service/PatientService.java,f/4/f4f62c2650b94dd255cda70294c712f94be766c7
-i
-9user/src/main/java/com/mediscreen/user/dto/DoctorDTO.java,5/6/562d2afba1379d3aa4747447546b36a19685cce3
-j
-:user/src/main/java/com/mediscreen/user/dto/PatientDTO.java,7/0/705a4a1654cdbcb9dc49c41c1200cdd0633b787b
 h
 8user/src/main/java/com/mediscreen/user/dto/Response.java,4/3/43274e178e9cf703426820d2a934cc54b4cdfc3e
-h
-8user/src/main/java/com/mediscreen/user/entity/Model.java,2/1/21e70afe7f96bdabd34d44ad0918670fc707bacd
 r
 Buser/src/main/java/com/mediscreen/user/repository/PatientCRUD.java,1/0/10c71434667696492d7d291b55835df9ac933530
-{
-Kuser/src/main/java/com/mediscreen/user/service/impl/PatientServiceImpl.java,d/3/d365989d998b210aac6734faf2d687f35212a76f

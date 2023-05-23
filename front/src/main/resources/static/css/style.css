@@ -23,7 +23,7 @@ h1{
     position: relative;
     font-size: 70px;
     text-align: center;
-    color: #29cb29;
+    color: #0076BA;
 
 }
 
@@ -38,6 +38,7 @@ h1{
     border: none;
     padding: 8px;
     background-color: #FFF;
+    min-width: 155px;
 }
 
 
@@ -62,7 +63,7 @@ input[type="text"], input[type="password"]{
     margin: 6px 0;
 }
 input[type="submit"]{
-    background-color: #29cb29;
+    background-color: #0076BA;
     color:#FFFFFF;
     padding: 5px 15px;
     margin: 6px 0;
@@ -72,7 +73,7 @@ input[type="submit"]{
 }
 
 .button_add_patient{
-    background-color: grey;
+    background-color: lightgreen;
     color:#FFFFFF;
     padding: 5px 15px;
     margin: 6px 0;
@@ -91,7 +92,7 @@ table{
 }
 
 table thead tr{
-    background-color: #29cb29;
+    background-color: #63abb2;
     color: #FFFFFF;
 }
 
@@ -122,4 +123,25 @@ table tr td{
     cursor: pointer;
     font-size: 20px;
     padding: 2px 5px;
+}
+
+/* Notes */
+
+.notes{
+    margin-left:15px;
+}
+
+.td-note{
+    width: 33%;
+}
+
+.form_note{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.form_note textarea{
+    width: 100%;
+    margin: 0 auto;
+    padding: 4px;
 }

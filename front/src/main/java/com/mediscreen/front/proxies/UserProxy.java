@@ -27,4 +27,5 @@ public interface UserProxy {
     @GetMapping(value="/patient/{id}")
     ResponseBean getPatient(@RequestParam("id") BigInteger id);
 
+
 }

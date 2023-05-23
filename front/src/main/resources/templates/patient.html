@@ -8,19 +8,41 @@
 <body>
 
     <h1>Patient Details</h1>
-    <a th:href="@{/patientList}" class="button_add_patient">Return to list</a>
-    <div class="container oneCard">
+    <a th:href="@{/patientList}" class="button_add_patient space">Return to list</a>
+    <div class="container">
 
         <div class="card">
             <div>
-                <p>Firstname : <span th:text="*{patient.firstname}"></span></p>
-                <p>Lastname : <span th:text="*{patient.lastname}"></span></p>
-                <p>Sex : <span th:text="*{patient.sex}"></span></p>
-                <p>Birthdate : <span th:text="*{patient.birthdate}"></span></p>
-                <p>Address : <span th:text="*{patient.address}"></span></p>
-                <p>Phone : <span th:text="*{patient.phone}"></span></p>
+                <p>Firstname : <br><span th:text="*{patient.firstname}"></span></p>
+                <p>Lastname : <br><span th:text="*{patient.lastname}"></span></p>
+                <p>Sex : <br><span th:text="*{patient.sex}"></span></p>
+                <p>Birthdate : <br><span th:text="*{patient.birthdate}"></span></p>
+                <p>Address : <br><span th:text="*{patient.address}"></span></p>
+                <p>Phone : <br><span th:text="*{patient.phone}"></span></p>
             </div>
+            <a class="button_add_patient" th:href="@{/addNewNote/{id}(id=${patient.id})}">Add a note</a>
         </div>
+
+        <table class="notes">
+            <thead>
+            <tr>
+                <th style="width: 10%;">Date</th>
+                <th>Doctor</th>
+                <th style="width: 50%;">Notes</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="note : ${noteList}">
+                <td th:text="${note.dateCreated}"></td>
+                <td th:text="${note.doctorFullname}"></td>
+                <td class="td-note" th:text="${note.note}"></td>
+                <td class="td-action">
+                    <a class="button_add_patient" th:href="@{/noteUpdate/{id}(id=${note.id})}">Edit</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

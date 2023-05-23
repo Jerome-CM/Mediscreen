@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Notes</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <div th:replace="~{policy.html}"></div>
+</head>
+<body>
+
+    <h1>New note</h1>
+    <a th:href="@{/patient/{id}(id=${noteBean.getPatientId()})}" class="button_add_patient space">Return to patient</a>
+    <div class="container">
+        <form class="form_note" action="#" method="post" th:action="@{/addNewNote}" th:object="${noteBean}">
+            <textarea th:field="*{note}" cols="30" rows="10" placeholder="Your note here"></textarea>
+            <input type="hidden" th:field="*{doctorFullname}" th:value="${noteBean.getDoctorFullname()}">
+            <input type="hidden" th:field="*{patientId}" th:value="${noteBean.getPatientId()}">
+            <input type="submit" class="button_add_patient" value="Save">
+        </form>
+    </div>
+</body>
+</html>

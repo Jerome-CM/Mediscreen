@@ -7,6 +7,8 @@ import com.mediscreen.user.service.PatientService;
 import com.mediscreen.user.service.impl.PatientServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigInteger;
@@ -21,6 +23,11 @@ public class PatientController {
         this.patientService = patientService;
     }
 
+    @ApiOperation(value = "Get a product by id", notes = "Returns a product as per the id")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successfully retrieved"),
+            @ApiResponse(code = 404, message = "Not found - The product was not found")
+    })
     @PostMapping(value="/addPatient")
     Response addPatient(@RequestBody PatientDTO patientDTO){ //
         return patientService.savePatient(patientDTO);
