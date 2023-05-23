@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.Cookie;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -84,5 +85,22 @@ public class AuthController {
             return "redirect:/patientList";
         }
         return "redirect:/login";
+    }
+
+    @GetMapping(value="/logout")
+    public String logout(HttpServletRequest request, HttpServletResponse response, Model map) {
+        // Supprimer les cookies existants
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                cookie.setMaxAge(0);
+                cookie.setPath("/");
+                response.addCookie(cookie);
+            }
+        }
+        map.addAttribute("ConnexionDTO", new DoctorBean());
+        map.addAttribute("RegisterDTO", new DoctorBean());
+
+        return "login";
     }
 }

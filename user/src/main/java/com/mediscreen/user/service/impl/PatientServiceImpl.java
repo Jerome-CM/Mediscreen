@@ -9,8 +9,6 @@ import com.mediscreen.user.service.PatientService;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -91,7 +89,7 @@ public class PatientServiceImpl implements PatientService    {
      * @param id
      * @return Response
      */
-    public Response findPatient(BigInteger id){
+    public Response findPatient(String id){
         log.info("--- Method findPatient ---");
         Optional<Patient> userOpt = patientCRUD.findPatientById(id);
         if(userOpt.isPresent()){

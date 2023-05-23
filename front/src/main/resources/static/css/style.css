@@ -73,7 +73,7 @@ input[type="submit"]{
 }
 
 .button_add_patient{
-    background-color: lightgreen;
+    background-color: #0076BA;
     color:#FFFFFF;
     padding: 5px 15px;
     margin: 6px 0;
@@ -144,4 +144,12 @@ table tr td{
     width: 100%;
     margin: 0 auto;
     padding: 4px;
+}
+
+.logout{
+    position: absolute;
+    margin: 0;
+    right: 7px;
+    top: 7px;
+    background-color: orange;
 }

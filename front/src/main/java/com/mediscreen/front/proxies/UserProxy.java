@@ -7,8 +7,6 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import java.math.BigInteger;
-
 
 @FeignClient(name = "user", url = "${microservice.user}")
 public interface UserProxy {
@@ -25,7 +23,7 @@ public interface UserProxy {
     ResponseBean getPatientsList();
 
     @GetMapping(value="/patient/{id}")
-    ResponseBean getPatient(@RequestParam("id") BigInteger id);
+    ResponseBean getPatient(@RequestParam("id") String id);
 
 
 }

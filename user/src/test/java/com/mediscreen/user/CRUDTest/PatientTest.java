@@ -12,14 +12,6 @@ import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.util.List;
-
-import static org.springframework.test.util.AssertionErrors.assertEquals;
-import static org.springframework.test.util.AssertionErrors.assertFalse;
-
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class PatientTest {
@@ -27,7 +19,7 @@ public class PatientTest {
     @Autowired
     private PatientService patientService;
 
-    private static BigInteger idBefore;
+    private static String idBefore;
 
     /*
     @BeforeAll

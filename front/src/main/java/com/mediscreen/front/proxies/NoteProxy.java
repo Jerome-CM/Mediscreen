@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.math.BigInteger;
 
 @FeignClient(name = "note", url = "${microservice.note}")
 public interface NoteProxy {
@@ -17,10 +16,10 @@ public interface NoteProxy {
     ResponseBean addNewNote(NoteBean note);
 
     @GetMapping(value="/getAllNoteByPatientId/{id}")
-    ResponseBean getAllNoteByPatientId(@RequestParam("id") BigInteger id);
+    ResponseBean getAllNoteByPatientId(@RequestParam("id") String id);
 
     @GetMapping(value="/updateNote/{id}")
-    ResponseBean getUpdateNote(@RequestParam("id") BigInteger id);
+    ResponseBean getUpdateNote(@RequestParam("id") String id);
 
     @PostMapping(value="/updateNote")
     @Headers("Content-Type:application/json")

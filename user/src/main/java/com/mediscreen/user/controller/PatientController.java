@@ -11,8 +11,6 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigInteger;
-
 @Api("API for Patient; CRUD operations")
 @RestController
 public class PatientController {
@@ -45,12 +43,12 @@ public class PatientController {
     }
 
     @GetMapping(value="/patient/{id}")
-    Response getPatient(@PathVariable("id") BigInteger id) {
+    Response getPatient(@PathVariable("id") String id) {
         return patientService.findPatient(id);
     }
 
     @GetMapping(value="/updatePatient/{id}")
-    Response getUpdatePatient(@PathVariable("id") BigInteger id){
+    Response getUpdatePatient(@PathVariable("id") String id){
         return patientService.findPatient(id);
     }
 

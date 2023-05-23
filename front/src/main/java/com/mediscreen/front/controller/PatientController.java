@@ -12,9 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
-
-import java.math.BigInteger;
 import java.util.List;
 
 @Controller
@@ -52,7 +49,7 @@ public class PatientController {
 
 
     @GetMapping(value="/patientUpdate/{id}")
-    public String getPatientDetails(Model map, @PathVariable BigInteger id){
+    public String getPatientDetails(Model map, @PathVariable String id){
         ResponseBean response = userProxy.getPatient(id);
         if(response.getStatus().equals(EnumResponse.OK)) {
             PatientBean patientBean = modelMapper.map(response.getContent(), PatientBean.class);
@@ -86,7 +83,7 @@ public class PatientController {
     }
 
     @GetMapping(value="patient/{id}")
-    public String getPatientInfo(Model map, @PathVariable BigInteger id){
+    public String getPatientInfo(Model map, @PathVariable String id){
         ResponseBean response = userProxy.getPatient(id);
         if(response.getStatus().equals(EnumResponse.OK)) {
             PatientBean patientBean = modelMapper.map(response.getContent(), PatientBean.class);

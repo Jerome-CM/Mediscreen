@@ -3,11 +3,9 @@ package com.mediscreen.front.beans;
 import com.mediscreen.front.entity.Sex;
 import lombok.Data;
 
-import java.math.BigInteger;
-
 @Data
 public class PatientBean {
-    private BigInteger id;
+    private String id;
 
     private String firstname;
 

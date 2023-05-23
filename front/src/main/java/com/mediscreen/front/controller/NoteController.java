@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import java.math.BigInteger;
 
 @Controller
 @Slf4j
@@ -35,7 +34,7 @@ public class NoteController {
 
 
     @GetMapping(value="/addNewNote/{id}")
-    String getAddNotePage(@PathVariable BigInteger id, Model map, HttpServletRequest request){
+    String getAddNotePage(@PathVariable String id, Model map, HttpServletRequest request){
 
         NoteBean note = new NoteBean();
         // Add id patient
@@ -82,7 +81,7 @@ public class NoteController {
     }
 
     @GetMapping(value="/noteUpdate/{id}")
-    public String getUpdateNote(@PathVariable BigInteger id, Model map){
+    public String getUpdateNote(@PathVariable String id, Model map){
         ResponseBean response = noteProxy.getUpdateNote(id);
         if(response.getStatus().equals(EnumResponse.OK)){
             log.info("--- Method Get updateNote Ok ---");

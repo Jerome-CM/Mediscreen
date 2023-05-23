@@ -1,16 +1,12 @@
 package com.mediscreen.notes.service;
 
-import com.mediscreen.notes.dto.NoteDTO;
 import com.mediscreen.notes.dto.Response;
 import com.mediscreen.notes.entity.EnumResponse;
 import com.mediscreen.notes.entity.Note;
 import com.mediscreen.notes.repository.NoteRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-
-import java.math.BigInteger;
 import java.util.Date;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Optional;
 import java.text.SimpleDateFormat;
@@ -42,14 +38,14 @@ public class NoteServiceImpl implements NoteService {
 
     }
 
-    public Response getAllNoteByPatient(BigInteger id){
+    public Response getAllNoteByPatient(String id){
         log.info("id patient before BDD: {}", id);
         List<Note> allNoteByPatient = noteRepository.findAllNoteByPatientId(id);
         log.info("Notes finded : {}", allNoteByPatient);
         return new Response(EnumResponse.OK, allNoteByPatient, "");
     }
 
-    public Response getNoteById(BigInteger id){
+    public Response getNoteById(String id){
         Optional<Note> note = noteRepository.findNoteById(id);
         if(note.isPresent()){
             log.info("Get note with id : {} , {}", id, note);

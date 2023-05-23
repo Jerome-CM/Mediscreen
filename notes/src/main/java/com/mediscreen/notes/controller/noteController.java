@@ -8,8 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigInteger;
-
 @RestController
 @Slf4j
 public class noteController {
@@ -32,12 +30,12 @@ public class noteController {
     }
 
     @GetMapping(value="/getAllNoteByPatientId/{id}")
-    Response getAllNoteByPatientId(@RequestParam("id") BigInteger id){
+    Response getAllNoteByPatientId(@RequestParam("id") String id){
         return noteService.getAllNoteByPatient(id);
     }
 
     @GetMapping(value="/updateNote/{id}")
-    Response getUpdateNote(@RequestParam("id") BigInteger id){
+    Response getUpdateNote(@RequestParam("id") String id){
         return noteService.getNoteById(id);
     }
 

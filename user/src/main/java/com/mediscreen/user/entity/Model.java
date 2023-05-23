@@ -4,13 +4,11 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 
-import java.math.BigInteger;
-
 @Data
 public abstract class Model {
 
     @Id
-    private BigInteger id;
+    private String id;
 
     @NotNull(message = "Firstname is mandatory")
     private String firstname;

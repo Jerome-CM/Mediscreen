@@ -2,11 +2,9 @@ package com.mediscreen.user.dto;
 
 import lombok.Data;
 
-import java.math.BigInteger;
-
 @Data
 public class DoctorDTO {
-    private BigInteger id;
+    private String id;
 
     private String firstname;
 
