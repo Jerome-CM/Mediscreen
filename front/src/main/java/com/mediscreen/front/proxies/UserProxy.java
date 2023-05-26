@@ -23,7 +23,7 @@ public interface UserProxy {
     ResponseBean getPatientsList();
 
     @GetMapping(value="/patient/{id}")
-    ResponseBean getPatient(@RequestParam("id") String id);
+    ResponseBean getPatient(@RequestParam("id") Long id);
 
 
 }

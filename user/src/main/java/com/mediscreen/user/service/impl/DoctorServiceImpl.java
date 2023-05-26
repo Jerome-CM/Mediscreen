@@ -34,7 +34,7 @@ public class DoctorServiceImpl implements DoctorService {
      * @param login
      * @return Response
      */
-    public Response findDoctorByLogin(String login){
+     public Response findDoctorByLogin(String login){
         log.info("--- Method findUserByLogin ---");
         Optional<Doctor> userOpt = doctorCRUD.findDoctorByLogin(login);
         if(userOpt.isPresent()){
@@ -50,7 +50,7 @@ public class DoctorServiceImpl implements DoctorService {
      *
      * @param register
      * @return
-     */
+    */
     public Response saveDoctor(RegisterDTO register){
         log.info("--- Method saveUser ---");
         Response ifExist = findDoctorByLogin(register.getLogin());
@@ -80,7 +80,7 @@ public class DoctorServiceImpl implements DoctorService {
      *
      * @param id
      * @return Doctor
-     */
+    */
     public Doctor getDoctorById(Long id){
         Optional<Doctor> doctor = doctorCRUD.findById(id);
         if(doctor.isPresent()){
@@ -94,7 +94,7 @@ public class DoctorServiceImpl implements DoctorService {
      *
      * @param co
      * @return Response
-     */
+    */
     public Response auth(ConnexionDTO co){
         log.info("--- Method auth ---");
         Response ifExist = findDoctorByLogin(co.getLogin());

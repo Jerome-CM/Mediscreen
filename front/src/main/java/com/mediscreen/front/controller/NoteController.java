@@ -35,13 +35,13 @@ public class NoteController {
 
 
     @GetMapping(value="/addNewNote/{id}")
-    String getAddNotePage(@PathVariable String id, Model map, @CookieValue(value = "doctorFirstname") String first, @CookieValue(value = "doctorLastname") String last){
+    String getAddNotePage(@PathVariable Long id, Model map, @CookieValue(value = "doctorFirstname") String first, @CookieValue(value = "doctorLastname") String last){
 
         NoteBean note = new NoteBean();
         // Add id patient
         ResponseBean responsePatient = userProxy.getPatient(id);
         if(responsePatient.getStatus().equals(EnumResponse.OK)){
-            note.setPatientId(id);
+            note.setPatientId(String.valueOf(id));
         }
 
         String doctorFullname = null;

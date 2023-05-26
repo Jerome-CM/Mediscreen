@@ -49,7 +49,7 @@ public class PatientController {
 
 
     @GetMapping(value="/patientUpdate/{id}")
-    public String getPatientDetails(Model map, @PathVariable String id){
+    public String getPatientDetails(Model map, @PathVariable Long id){
         ResponseBean response = userProxy.getPatient(id);
         if(response.getStatus().equals(EnumResponse.OK)) {
             PatientBean patientBean = modelMapper.map(response.getContent(), PatientBean.class);
@@ -83,7 +83,7 @@ public class PatientController {
     }
 
     @GetMapping(value="patient/{id}")
-    public String getPatientInfo(Model map, @PathVariable String id){
+    public String getPatientInfo(Model map, @PathVariable Long id){
         ResponseBean response = userProxy.getPatient(id);
         if(response.getStatus().equals(EnumResponse.OK)) {
             PatientBean patientBean = modelMapper.map(response.getContent(), PatientBean.class);
@@ -94,7 +94,7 @@ public class PatientController {
 
 
         // Add all notes
-        ResponseBean responseNote = noteProxy.getAllNoteByPatientId(id);
+        ResponseBean responseNote = noteProxy.getAllNoteByPatientId(String.valueOf(id));
         if(responseNote.getStatus().equals(EnumResponse.OK)){
             map.addAttribute("noteList", responseNote.getContent());
         }
