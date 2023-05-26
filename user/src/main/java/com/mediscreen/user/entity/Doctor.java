@@ -1,15 +1,18 @@
 package com.mediscreen.user.entity;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@Document(collection = "doctor")
+@Entity
 public class Doctor extends Model{
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Long id;
+
     @NotNull(message = "Login is mandatory and unique")
-    @Indexed(unique = true)
+    @Column(unique = true)
     private String login;
 
     @NotNull(message = "Password is mandatory")

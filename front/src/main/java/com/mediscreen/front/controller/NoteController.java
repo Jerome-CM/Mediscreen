@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,7 +35,7 @@ public class NoteController {
 
 
     @GetMapping(value="/addNewNote/{id}")
-    String getAddNotePage(@PathVariable String id, Model map, HttpServletRequest request){
+    String getAddNotePage(@PathVariable String id, Model map, @CookieValue(value = "doctorFirstname") String first, @CookieValue(value = "doctorLastname") String last){
 
         NoteBean note = new NoteBean();
         // Add id patient
@@ -44,27 +45,11 @@ public class NoteController {
         }
 
         String doctorFullname = null;
-        // Get id doctor
-        Cookie[] cookies = request.getCookies();
-        if (cookies != null) {
-            String first = null;
-            String last = null;
-            for (Cookie cookie : cookies) {
-                if (cookie.getName().equals("doctorFirstname")) {
-                    first = cookie.getValue();
-                }
-                if (cookie.getName().equals("doctorLastname")) {
-                    last = cookie.getValue();
-                }
-
-            }
-            doctorFullname = first + " " + last;
-        }
+        doctorFullname = first + " " + last;
 
         note.setDoctorFullname(doctorFullname);
         map.addAttribute("noteBean", note);
-        log.info("doctor : {}", map.getAttribute("doctor"));
-        log.info("idPatient : {}", map.getAttribute("idPatient"));
+
         return "newNote";
     }
 

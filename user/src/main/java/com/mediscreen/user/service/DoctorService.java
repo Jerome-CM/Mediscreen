@@ -15,7 +15,4 @@ public interface DoctorService {
 
     Response auth(ConnexionDTO doctorDTO);
 
-
-
-
 }

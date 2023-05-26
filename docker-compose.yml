@@ -1,6 +1,21 @@
 version: '3'
 
 services:
+  mysql:
+    image:
+    container_name: mysql_container
+    volumes:
+      - /data/db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: mediscreen
+      MYSQL_ROOT_USERNAME: root
+      MYSQL_ROOT_PASSWORD: Java-Mysql3306
+    restart: on-failure
+    networks:
+      - default
+
   mongodb:
     image: mongo:4 #:4.2.2
     container_name: mongodb_container

@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @Service
 @Slf4j
-public class PatientServiceImpl implements PatientService    {
+public class PatientServiceImpl implements PatientService {
 
     private final PatientCRUD patientCRUD;
 
@@ -91,7 +91,7 @@ public class PatientServiceImpl implements PatientService    {
      */
     public Response findPatient(String id){
         log.info("--- Method findPatient ---");
-        Optional<Patient> userOpt = patientCRUD.findPatientById(id);
+        Optional<Patient> userOpt = patientCRUD.findPatientById(Long.valueOf(id));
         if(userOpt.isPresent()){
             PatientDTO patient = modelMapper.map(userOpt.get(), PatientDTO.class);
             return new Response(EnumResponse.OK, patient, "");
@@ -106,7 +106,7 @@ public class PatientServiceImpl implements PatientService    {
      */
     public Response getPatientsList(){
         List<PatientDTO> patientListDTO = new ArrayList<>();
-        List<Patient> patients = patientCRUD.findAll();
+        List<Patient> patients = (List<Patient>) patientCRUD.findAll();
         patients.forEach(p -> {
             PatientDTO patientDTO = modelMapper.map(p, PatientDTO.class);
             patientListDTO.add(patientDTO);
