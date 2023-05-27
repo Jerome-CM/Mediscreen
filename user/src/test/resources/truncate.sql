@@ -1,0 +1,2 @@
+truncate doctor;
+truncate patient;

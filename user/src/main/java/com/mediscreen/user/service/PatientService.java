@@ -9,7 +9,7 @@ public interface PatientService {
 
     Response updatePatient(PatientDTO patientDTO);
 
-    Response findPatient(String id);
+    Response findPatient(Long id);
 
     Response getPatientsList();
 

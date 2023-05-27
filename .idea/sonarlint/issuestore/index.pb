@@ -4,8 +4,6 @@ f
 ?
 user/Dockerfile,d/1/d166e0209c61f1a90a38553945b398cf8abbf8f5
 o
-?user/src/test/java/com/mediscreen/user/CRUDTest/DoctorTest.java,3/9/3971f8a73eab8dc3f5694b90ea455bcce9147516
-o
 ?front/src/main/java/com/mediscreen/front/ConfigModelMapper.java,6/9/696db6844779afd2cf081fd66faa4a362893c072
 n
 >front/src/main/java/com/mediscreen/front/FrontApplication.java,7/c/7c77f68139524fd59de1150d625cd529d41f5e4d
@@ -27,8 +25,6 @@ l
 <front/src/main/java/com/mediscreen/front/beans/NoteBean.java,0/5/057e44f2e33ecd5d1579bbfb8231035cea3d0665
 i
 9notes/src/main/java/com/mediscreen/notes/entity/Note.java,4/e/4e299f3b14ac06efdc0d5ded589868bd5d9ad8ba
-p
-@user/src/test/java/com/mediscreen/user/CRUDTest/PatientTest.java,1/2/1229bac6fb5ffbfad85122703ca59ba8d0e5f81d
 =
 notes/pom.xml,7/f/7fb2d2a02aaf568a9461bd87f07e051075ec8295
 n
@@ -51,15 +47,7 @@ j
 :notes/src/main/java/com/mediscreen/notes/dto/Response.java,7/3/737c0081af1f66d4fe3b2512fa60a28be8454eda
 w
 Gfront/src/main/java/com/mediscreen/front/controller/AuthController.java,4/6/46d09657bf4893f80ec9f386d1999360d5e87601
-<
-user/pom.xml,c/d/cdfe2e323fad8b1bcfe52f68e21783f120cd711e
 o
 ?user/src/main/java/com/mediscreen/user/entity/EnumResponse.java,6/e/6e0b742296585e242d4af004190e903cbbd0f6a3
-l
-<user/src/main/java/com/mediscreen/user/dto/ConnexionDTO.java,c/3/c3786d31a9795fe5402c90ea74e52ffeca0d6499
 i
 9user/src/main/java/com/mediscreen/user/dto/DoctorDTO.java,5/6/562d2afba1379d3aa4747447546b36a19685cce3
-k
-;user/src/main/java/com/mediscreen/user/dto/RegisterDTO.java,0/2/02ac7b79cef3a79afc6c6da5d342043409f2f870
-j
-:user/src/main/java/com/mediscreen/user/dto/PatientDTO.java,7/0/705a4a1654cdbcb9dc49c41c1200cdd0633b787b

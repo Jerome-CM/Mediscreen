@@ -37,13 +37,13 @@ public class PatientController {
 
     @ApiOperation(value = "Get informations for this patient", notes = "Return a response content a status, one content and a message")
     @GetMapping(value="/patient/{id}")
-    Response getPatient(@PathVariable("id") @ApiParam(name = "id", value = "Patient id", example = "646cc1d1b50c7212b5cbbbc0") String id) {
+    Response getPatient(@PathVariable("id") @ApiParam(name = "id", value = "Patient id", example = "646cc1d1b50c7212b5cbbbc0") Long id) {
         return patientService.findPatient(id);
     }
 
     @ApiOperation(value = "Change informations for this patient", notes = "Return a response content a status, one content and a message")
     @GetMapping(value="/updatePatient/{id}")
-    Response getUpdatePatient(@PathVariable("id") @ApiParam(name = "id", value = "Patient id", example = "646cc1d1b50c7212b5cbbbc0") String id){
+    Response getUpdatePatient(@PathVariable("id") @ApiParam(name = "id", value = "Patient id", example = "646cc1d1b50c7212b5cbbbc0") Long id){
         return patientService.findPatient(id);
     }
 

@@ -11,42 +11,35 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Profile;
+import org.springframework.test.context.jdbc.Sql;
 
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.AFTER_TEST_METHOD;
+import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.BEFORE_TEST_METHOD;
+
+@Profile("test")
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@Sql(value = "/UsersDataTest.sql",executionPhase = BEFORE_TEST_METHOD)
+@Sql(value = "/truncate.sql",executionPhase = AFTER_TEST_METHOD)
 public class PatientTest {
 
     @Autowired
     private PatientService patientService;
 
-    private static String idBefore;
-
-    /*
-    @BeforeAll
-    public void initPatientTest(){
-
-        PatientDTO patient = new PatientDTO();
-        patient.setFirstname("UserTest");
-        patient.setLastname("LastnameTest");
-        patient.setBirthdate("06-29-1991");
-        patient.setSex(Sex.MAN);
-        patient.setAddress("Vineuil");
-        patient.setPhone("0612345678");
-        Response responseBefore = patientService.savePatient(patient);
-        System.out.println(responseBefore.getStatus());
-        PatientDTO returnPatient = (PatientDTO) responseBefore.getContent();
-        System.out.println(returnPatient);
-        idBefore = returnPatient.getId();
-    }
 
     @Test
     public void savePatientTest(){
         PatientDTO patient = new PatientDTO();
-        patient.setFirstname("Jerome");
-        patient.setLastname("Bouteveille");
-        patient.setBirthdate("06-29-1991");
+        patient.setFirstname("John");
+        patient.setLastname("Doe");
+        patient.setBirthdate("06-29-1990");
         patient.setSex(Sex.MAN);
-        patient.setAddress("Vineuil");
+        patient.setAddress("Blois");
         patient.setPhone("0612345678");
 
         Response response = patientService.getPatientsList();
@@ -77,7 +70,7 @@ public class PatientTest {
     @Test
     public void updatePatientTest(){
 
-        Response response = patientService.findPatient(idBefore);
+        Response response = patientService.findPatient(1L);
         PatientDTO patient = (PatientDTO) response.getContent();
         String firstnameOrigin = patient.getFirstname();
 
@@ -92,6 +85,4 @@ public class PatientTest {
         assertFalse("", firstnameOrigin.equals(patientFound.getFirstname()));
     }
 
-
-     */
 }

@@ -1,0 +1,2 @@
+insert into doctor(firstname, lastname, login,password)values("Jérôme", "Bouteveille", "Jerome-CM", "$2a$10$emr53qBQinO59U6SFVMo/.0tdmUN/Yur5ovF/Dz.3LuOPBx4Vc9Ym");
+insert into patient(id,firstname, lastname,birthdate,sex,address,phone)values(1,"Jerome","Bouteveille","06-29-1991", 0,"Vineuil", "0633705594");

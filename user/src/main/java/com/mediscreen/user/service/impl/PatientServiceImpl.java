@@ -89,7 +89,7 @@ public class PatientServiceImpl implements PatientService {
      * @param id
      * @return Response
      */
-    public Response findPatient(String id){
+    public Response findPatient(Long id){
         log.info("--- Method findPatient ---");
         Optional<Patient> userOpt = patientCRUD.findPatientById(Long.valueOf(id));
         if(userOpt.isPresent()){
