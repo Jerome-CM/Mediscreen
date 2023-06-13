@@ -1,16 +1,17 @@
-package com.mediscreen.report.service;
+package com.mediscreen.report.service.Impl;
 
 import com.mediscreen.report.entity.Note;
 import com.mediscreen.report.entity.Patient;
 import com.mediscreen.report.repository.NoteRepository;
 import com.mediscreen.report.repository.PatientRepository;
+import com.mediscreen.report.service.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserServiceImpl {
+public class UserServiceImpl implements UserService {
 
     private final PatientRepository patientRepository;
 
