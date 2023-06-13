@@ -11,8 +11,6 @@ public interface DoctorService {
 
     Response saveDoctor(RegisterDTO doctorDTO);
 
-    Doctor getDoctorById(Long id);
-
     Response auth(ConnexionDTO doctorDTO);
 
 }

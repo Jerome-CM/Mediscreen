@@ -76,7 +76,7 @@ public class PatientTest {
 
         patient.setFirstname("Jack");
 
-        patientService.savePatient(patient);
+        patientService.updatePatient(patient);
 
         Response responsePatientFound = patientService.findPatient(patient.getId());
         PatientDTO patientFound = (PatientDTO) responsePatientFound.getContent();

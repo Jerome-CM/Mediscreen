@@ -75,21 +75,6 @@ public class DoctorServiceImpl implements DoctorService {
         }
     }
 
-
-    /**
-     *
-     * @param id
-     * @return Doctor
-    */
-    public Doctor getDoctorById(Long id){
-        Optional<Doctor> doctor = doctorCRUD.findById(id);
-        if(doctor.isPresent()){
-            return doctor.get();
-        } else {
-            throw new RuntimeException("The doctor is not found");
-        }
-    }
-
     /**
      *
      * @param co
