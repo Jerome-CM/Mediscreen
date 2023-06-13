@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class NoteDTO {
 
-    @ApiModelProperty(notes = "Doctor id", example = "646cc1d1b50c7212b5cbbbc0", required = false)
+    @ApiModelProperty(notes = "Note id", example = "646cc1d1b50c7212b5cbbbc0", required = false)
     private String id;
 
     @ApiModelProperty(notes = "Date created for this note", example = "2023-11-25", required = false)

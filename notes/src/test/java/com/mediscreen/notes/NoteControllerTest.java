@@ -1,14 +1,9 @@
-package com.mediscreen.user.controllerTest;
-
+package com.mediscreen.notes;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mediscreen.user.controller.DoctorController;
-import com.mediscreen.user.controller.PatientController;
-import com.mediscreen.user.dto.ConnexionDTO;
-import com.mediscreen.user.dto.PatientDTO;
-import com.mediscreen.user.dto.RegisterDTO;
-import com.mediscreen.user.entity.Sex;
-import com.mediscreen.user.service.DoctorService;
-import com.mediscreen.user.service.PatientService;
+import com.mediscreen.notes.controller.NoteController;
+import com.mediscreen.notes.dto.NoteDTO;
+import com.mediscreen.notes.entity.Note;
+import com.mediscreen.notes.service.NoteService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +11,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Profile;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -28,8 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-@ContextConfiguration
-public class PatientControllerTest {
+public class NoteControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -38,82 +32,49 @@ public class PatientControllerTest {
     private ObjectMapper objectMapper;
 
     @Autowired
-    private PatientController patientController;
+    private NoteController noteController;
 
     @Autowired
-    private PatientService patientService;
+    private NoteService noteService;
 
     @Test
-    public void savePatientTest() throws Exception {
-        PatientDTO patient = new PatientDTO();
-        patient.setFirstname("John");
-        patient.setLastname("Doe");
-        patient.setBirthdate("06-29-1990");
-        patient.setSex(Sex.MAN);
-        patient.setAddress("Blois");
-        patient.setPhone("0612345678");
+    public void saveNewNoteTest() throws Exception {
+        Note note = new Note();
+        note.setPatientId("1");
+        note.setNote("Caution Cholesterol");
+        note.setDoctorFullname("Jérôme Bouteveille");
+        note.setDateCreated("2023-06-23");
 
-        mockMvc.perform(post("/addPatient")
+        mockMvc.perform(post("/addNewNote")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(patient)))
+                        .content(objectMapper.writeValueAsString(note)))
                 .andExpect(status().isOk());
     }
 
     @Test
-    public void getPatientListTest() throws Exception {
-        mockMvc.perform(get("/patientList"))
-                .andExpect(status().isOk());
-    }
+    public void updateNoteTest() throws Exception {
+        NoteDTO note = new NoteDTO();
+        note.setId("6471c345984c131f9d3cb355");
+        note.setPatientId("1");
+        note.setNote("warning weight");
+        note.setDoctorFullname("Jérôme Bouteveille");
+        note.setDateCreated("2023-06-23");
 
-    @Test
-    public void getPatientTest() throws Exception {
-        PatientDTO patient = new PatientDTO();
-        patient.setFirstname("John");
-        patient.setLastname("Doe");
-        patient.setBirthdate("06-29-1990");
-        patient.setSex(Sex.MAN);
-        patient.setAddress("Blois");
-        patient.setPhone("0612345678");
-        patient.setId(1L);
-
-        patientService.savePatient(patient);
-
-        mockMvc.perform(get("/patient/{id}", 1))
-                .andExpect(status().isOk());
-    }
-
-    @Test
-    public void getPatientUpdatePageTest() throws Exception {
-        PatientDTO patient = new PatientDTO();
-        patient.setFirstname("John");
-        patient.setLastname("Doe");
-        patient.setBirthdate("06-29-1990");
-        patient.setSex(Sex.MAN);
-        patient.setAddress("Blois");
-        patient.setPhone("0612345678");
-        patient.setId(3L);
-
-        patientService.savePatient(patient);
-        mockMvc.perform(get("/updatePatient/{id}", 3))
-                .andExpect(status().isOk());
-    }
-
-    @Test
-    public void updatePatientTest() throws Exception {
-        PatientDTO patient = new PatientDTO();
-        patient.setFirstname("Johnny");
-        patient.setLastname("English");
-        patient.setBirthdate("06-29-1960");
-        patient.setSex(Sex.MAN);
-        patient.setAddress("London");
-        patient.setPhone("0612345678");
-
-        mockMvc.perform(post("/updatePatient")
+        mockMvc.perform(post("/updateNote")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(patient)))
+                        .content(objectMapper.writeValueAsString(note)))
                 .andExpect(status().isOk());
     }
 
+    /*@Test
+    public void getAllNoteByPatientIdTest() throws Exception {
+                mockMvc.perform(get("/getAllNoteByPatientId/{id}", "1"))
+                .andExpect(status().isOk());
+    }
 
-
+    @Test
+    public void getNoteTest() throws Exception {
+        mockMvc.perform(get("/updateNote/{id}", "6471c345984c131f9d3cb355"))
+                .andExpect(status().isOk());
+    }*/
 }

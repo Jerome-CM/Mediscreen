@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @Slf4j
 @Api("API for Note; Add and update endpoint.")
-public class noteController {
+public class NoteController {
 
     private final ModelMapper modelMapper;
 
    private final NoteService noteService;
 
-    public noteController(ModelMapper modelMapper, NoteService noteService) {
+    public NoteController(ModelMapper modelMapper, NoteService noteService) {
         this.modelMapper = modelMapper;
         this.noteService = noteService;
     }
