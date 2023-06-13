@@ -21,6 +21,9 @@
                 <p>Phone : <br><span th:text="*{patient.phone}"></span></p>
             </div>
             <a class="button_add_patient" th:href="@{/addNewNote/{id}(id=${patient.id})}">Add a note</a>
+            <br><br>
+            <div th:if="${reportResult == null}"><a class="button_add_patient" th:href="@{/generateReport/{id}(id=${patient.id})}">Generate a report</a></div>
+            <div th:if="${reportResult != null}"><a class="button_add_patient" th:text="${reportResult}"></a></div>
         </div>
 
         <table class="notes">
@@ -43,7 +46,10 @@
             </tr>
             </tbody>
         </table>
+
+
     </div>
+
     <div class="footer"><a class="button_add_patient logout" th:href="@{/logout}">Logout</a></div>
 </body>
 </html>

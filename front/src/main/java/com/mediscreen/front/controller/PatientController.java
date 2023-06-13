@@ -4,6 +4,7 @@ import com.mediscreen.front.beans.PatientBean;
 import com.mediscreen.front.beans.ResponseBean;
 import com.mediscreen.front.entity.EnumResponse;
 import com.mediscreen.front.proxies.NoteProxy;
+import com.mediscreen.front.proxies.ReportProxy;
 import com.mediscreen.front.proxies.UserProxy;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -12,6 +13,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -22,11 +26,14 @@ public class PatientController {
 
     private final NoteProxy noteProxy;
 
+    private final ReportProxy reportProxy;
+
     private final ModelMapper modelMapper;
 
-    public PatientController(UserProxy userProxy, NoteProxy noteProxy, ModelMapper modelMapper) {
+    public PatientController(UserProxy userProxy, NoteProxy noteProxy, ReportProxy reportProxy, ModelMapper modelMapper) {
         this.userProxy = userProxy;
         this.noteProxy = noteProxy;
+        this.reportProxy = reportProxy;
         this.modelMapper = modelMapper;
     }
 
@@ -83,22 +90,29 @@ public class PatientController {
     }
 
     @GetMapping(value="patient/{id}")
-    public String getPatientInfo(Model map, @PathVariable Long id){
+    public String getPatientInfo(Model map, @PathVariable Long id, @RequestParam(value = "report", required = false) boolean report) {
         ResponseBean response = userProxy.getPatient(id);
-        if(response.getStatus().equals(EnumResponse.OK)) {
+        if (response.getStatus().equals(EnumResponse.OK)) {
             PatientBean patientBean = modelMapper.map(response.getContent(), PatientBean.class);
             map.addAttribute("patient", patientBean);
         } else {
             map.addAttribute("response", response);
         }
 
-
         // Add all notes
         ResponseBean responseNote = noteProxy.getAllNoteByPatientId(String.valueOf(id));
-        if(responseNote.getStatus().equals(EnumResponse.OK)){
+        if (responseNote.getStatus().equals(EnumResponse.OK)) {
             map.addAttribute("noteList", responseNote.getContent());
         }
+
+        // Generate report
+        if (report) {
+            ResponseBean responseReport = reportProxy.generateReport(String.valueOf(id));
+            if (responseNote.getStatus().equals(EnumResponse.OK)) {
+                map.addAttribute("reportResult", responseReport.getContent());
+            }
+        }
+
         return "patient";
     }
-
 }

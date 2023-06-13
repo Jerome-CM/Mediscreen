@@ -24,7 +24,6 @@ h1{
     font-size: 70px;
     text-align: center;
     color: #0076BA;
-
 }
 
 .oneCard{
@@ -81,6 +80,22 @@ input[type="submit"]{
     font-size:22px;
     border-radius: 4px;
     text-decoration: none;
+}
+
+.green{
+    background-color:green!important;
+}
+
+.yellow{
+    background-color:yellow!important;
+}
+
+.orange{
+    background-color: orange!important;
+}
+
+.red{
+    background-color: red!important;
 }
 
 .text-danger{
