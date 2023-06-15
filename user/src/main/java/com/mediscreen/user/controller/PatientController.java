@@ -47,9 +47,4 @@ public class PatientController {
         return patientService.findPatient(id);
     }
 
-    @GetMapping("/getDoctorName")
-    Response getDoctorName(@CookieValue(value = "doctorFirstname") String first, @CookieValue(value = "doctorLastname") String last){
-        return patientService.getDoctorName(first, last);
-    }
-
 }
