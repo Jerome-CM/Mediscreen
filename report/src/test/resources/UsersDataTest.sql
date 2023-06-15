@@ -1,1 +1,1 @@
-insert into patient(id,firstname, lastname,birthdate,sex,address,phone)values(1,"Jerome","Bouteveille","1991-06-29", 0,"Vineuil", "0633705594");
+insert into patient(id,firstname, lastname,birthdate,sex,address,phone)values(1,"Jerome","Bouteveille","2022-06-29", 1,"Vineuil", "0633705594");

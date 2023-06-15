@@ -40,7 +40,7 @@ public class ReportResultTest {
     @Autowired
     private PatientRepository patientRepository;
 
-    private final int NBR_WARNING_WORDS = 7; // Max 10
+    private final int NBR_WARNING_WORDS = 3; // Max 10
     @BeforeAll
     public void initNote(){
 

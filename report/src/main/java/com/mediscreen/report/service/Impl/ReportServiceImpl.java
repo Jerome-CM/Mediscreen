@@ -67,23 +67,21 @@ public class ReportServiceImpl implements ReportService {
 
         // Récupérer les informations du patient à partir du repository
         Optional<Patient> patientOpt = patientRepository.findById(patientId);
-log.info("risk send : {}", riskLevel); // TODO delete
         if(patientOpt.isPresent() && riskLevel != 99){
             Patient patient = patientOpt.get();
 
             boolean isPatientAbove30 = over30YearsOld(patient.getBirthdate());
-log.info("+ de 30 : {}", isPatientAbove30);// TODO delete
             Sex sex = patient.getSex();
 
             log.info("Sex : {}", sex);
 
             String levelReturn = null;
-            if (riskLevel == 0) {
+            if (riskLevel >= 0 && riskLevel <= 1 || riskLevel <3 && !isPatientAbove30 && sex == Sex.MAN || riskLevel <4 && !isPatientAbove30 && sex == Sex.WOMAN ) {
                 levelReturn = "None";
-            } else if (riskLevel == 2 && isPatientAbove30) {
+            } else if (riskLevel >=2 && riskLevel <=5 && isPatientAbove30) {
                 levelReturn = "Borderline";
             } else if ((riskLevel >= 3 && riskLevel <= 4 && sex == Sex.MAN && !isPatientAbove30)
-                    || (riskLevel >= 4 && riskLevel <= 6 && sex == Sex.WOMAN && !isPatientAbove30) // TODO >= 4 && <= 6 Femme mineur à 5 mots ?
+                    || (riskLevel >= 4 && riskLevel <= 6 && sex == Sex.WOMAN && !isPatientAbove30)
                     || (isPatientAbove30 && riskLevel >= 6 && riskLevel <= 7)) {
                 levelReturn = "In Danger";
             } else if ((riskLevel >= 5 && sex == Sex.MAN && !isPatientAbove30)
