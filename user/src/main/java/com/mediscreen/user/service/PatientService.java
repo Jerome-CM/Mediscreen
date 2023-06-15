@@ -13,5 +13,7 @@ public interface PatientService {
 
     Response getPatientsList();
 
+    Response getDoctorName(String first, String last);
+
 
 }

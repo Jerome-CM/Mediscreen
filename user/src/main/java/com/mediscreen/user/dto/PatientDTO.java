@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 public class PatientDTO {
-    @ApiModelProperty(notes = "Patient id", example = "646cc1d1b50c7212b5cbbbc0", required = false)
+    @ApiModelProperty(notes = "Patient id", example = "1", required = false)
     private Long id;
 
     @ApiModelProperty(notes = "Patient firstname", example = "John", required = true)
@@ -21,7 +21,7 @@ public class PatientDTO {
     @JsonFormat(pattern = "dd-MM-yyyy")
     private String birthdate;
 
-    @ApiModelProperty(notes = "Patient Sex", example = "Man or Woman", required = true)
+    @ApiModelProperty(notes = "Patient Sex", example = "0 or 1", required = true)
     private Sex sex;
 
     @ApiModelProperty(notes = "Doctor firstname", example = "254 Doctor Street, Elizabeth City, NY 27909", required = false)

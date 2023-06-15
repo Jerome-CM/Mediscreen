@@ -37,14 +37,19 @@ public class PatientController {
 
     @ApiOperation(value = "Get informations for this patient", notes = "Return a response content a status, one content and a message")
     @GetMapping(value="/patient/{id}")
-    Response getPatient(@PathVariable("id") @ApiParam(name = "id", value = "Patient id", example = "646cc1d1b50c7212b5cbbbc0") Long id) {
+    Response getPatient(@PathVariable("id") @ApiParam(name = "id", value = "Patient id", example = "1") Long id) {
         return patientService.findPatient(id);
     }
 
     @ApiOperation(value = "Change informations for this patient", notes = "Return a response content a status, one content and a message")
     @GetMapping(value="/updatePatient/{id}")
-    Response getUpdatePatient(@PathVariable("id") @ApiParam(name = "id", value = "Patient id", example = "646cc1d1b50c7212b5cbbbc0") Long id){
+    Response getUpdatePatient(@PathVariable("id") @ApiParam(name = "id", value = "Patient id", example = "1") Long id){
         return patientService.findPatient(id);
+    }
+
+    @GetMapping("/getDoctorName")
+    Response getDoctorName(@CookieValue(value = "doctorFirstname") String first, @CookieValue(value = "doctorLastname") String last){
+        return patientService.getDoctorName(first, last);
     }
 
 }
