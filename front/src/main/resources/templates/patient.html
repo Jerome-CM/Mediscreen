@@ -22,7 +22,7 @@
             </div>
             <a class="button_add_patient" th:href="@{/addNewNote/{id}(id=${patient.id})}">Add a note</a>
             <br><br>
-            <div th:if="${reportResult == null}"><a class="button_add_patient" th:href="@{/generateReport/{id}(id=${patient.id})}">Generate a report</a></div>
+            <div th:if="${reportResult == null}"><a class="button_add_patient" style="padding: 5px; font-size: 20px;" th:href="@{/generateReport/{id}(id=${patient.id})}">Generate a report</a></div>
             <div th:if="${reportResult != null}"><a class="button_add_patient" th:text="${reportResult}"></a></div>
         </div>
 

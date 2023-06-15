@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import java.util.LinkedHashMap;
 
 @Controller
 @Slf4j
@@ -36,7 +37,6 @@ public class NoteController {
 
     @GetMapping(value="/addNewNote/{id}")
     String getAddNotePage(@PathVariable Long id, Model map, @CookieValue(value = "doctorFirstname") String first, @CookieValue(value = "doctorLastname") String last){
-
         NoteBean note = new NoteBean();
         // Add id patient
         ResponseBean responsePatient = userProxy.getPatient(id);
@@ -44,10 +44,7 @@ public class NoteController {
             note.setPatientId(String.valueOf(id));
         }
 
-        String doctorFullname = null;
-        doctorFullname = first + " " + last;
-
-        note.setDoctorFullname(doctorFullname);
+        note.setDoctorFullname(first + " " + last);
         map.addAttribute("noteBean", note);
 
         return "newNote";
@@ -68,15 +65,14 @@ public class NoteController {
     @GetMapping(value="/noteUpdate/{id}")
     public String getUpdateNote(@PathVariable String id, Model map){
         ResponseBean response = noteProxy.getUpdateNote(id);
+
         if(response.getStatus().equals(EnumResponse.OK)){
             log.info("--- Method Get updateNote Ok ---");
             NoteBean note = modelMapper.map(response.getContent(), NoteBean.class);
             map.addAttribute("noteBean", note);
-            return "/updateNote";
-        } else {
-            log.info("--- Method Get updateNote Error ---");
-            return "redirect:/noteUpdate/" + id;
+            return "updateNotes";
         }
+        return "redirect:/noteUpdate/" + id;
     }
 
     @PostMapping(value="/updateNote")
