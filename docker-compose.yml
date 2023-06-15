@@ -2,10 +2,10 @@ version: '3'
 
 services:
   mysql:
-    image:
+    image: mysql
     container_name: mysql_container
     volumes:
-      - /data/db
+      - /var/lib/mysql
     ports:
       - "3306:3306"
     environment:
@@ -23,33 +23,66 @@ services:
       - /data/db
     ports:
       - "27017:27017"
-    environment:
-      MYSQL_DATABASE: mediscreen
-      #MYSQL_ROOT_USERNAME: root
-      #MYSQL_ROOT_PASSWORD: root
     restart: on-failure
     networks:
       - default
 
   user:
     depends_on:
-      - mongodb
+      - mysql
     image: ms-user
     container_name: user_container
     environment:
-      - "spring_data_mongodb_host=mongodb"
-      - "mediscreen_front_cross_origin=http://127.0.0.1"
-      #- "rapport_cross=http://ms-rapport:9000"
-      - "SPRING_DATASOURCE_URL: mongodb://127.0.0.1:27017/mediscreen"
-      #SPRING_DATASOURCE_USERNAME: root
-      #SPRING_DATASOURCE_PASSWORD: root  Pas d'indentifiant pour la base
-      - "SPRING_DATABASE_PORT: 27017"
+      - "spring_datasource_username=root"
+      - "spring_datasource_password=Java-Mysql3306"
+      - "SPRING_DATASOURCE_URL=jdbc:mysql://mysql/mediscreen?serverTimezone=UTC"
+      - "SPRING_DATABASE_PORT: 3306"
     ports:
       - "9001:9001"
     networks:
           - default
 
+
+  notes:
+    depends_on:
+      - mongodb
+    image: ms-notes
+    container_name: notes_container
+    environment:
+      - "spring_data_mongodb_host=mongodb"
+      - "SPRING_DATASOURCE_URL: mongodb://127.0.0.1:27017/mediscreen"
+      - "SPRING_DATABASE_PORT: 27017"
+    ports:
+      - "9002:9002"
+    networks:
+      - default
+
+
+  report:
+    depends_on:
+      - mysql
+      - mongodb
+    image: ms-report
+    container_name: report_container
+    environment:
+      - "spring_datasource_username=root"
+      - "spring_datasource_password=Java-Mysql3306"
+      - "SPRING_DATASOURCE_URL=jdbc:mysql://mysql/mediscreen?serverTimezone=UTC"
+      - "SPRING_DATABASE_PORT: 3306"
+      - "spring_data_mongodb_host=mongodb"
+      - "SPRING_DATASOURCE_URL: mongodb://127.0.0.1:27017/mediscreen"
+      - "SPRING_DATABASE_PORT: 27017"
+    ports:
+      - "9003:9003"
+    networks:
+      - default
+
+
   front:
+    depends_on:
+      - user
+      - notes
+      - report
     image : ms-front
     container_name: front_container
     ports :
