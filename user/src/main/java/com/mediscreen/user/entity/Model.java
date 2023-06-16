@@ -11,10 +11,10 @@ import lombok.Data;
 @MappedSuperclass
 public abstract class Model {
 
-    @NotNull(message = "Firstname is mandatory")
+    @NotNull
     private String firstname;
 
-    @NotNull(message = "Lastname is mandatory")
+    @NotNull
     private String lastname;
 
 }

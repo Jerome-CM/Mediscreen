@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class DoctorDTO {
 
-    @ApiModelProperty(notes = "Doctor id", example = "646cc1d1b50c7212b5cbbbc0", required = false)
+    @ApiModelProperty(notes = "Doctor id", example = "123", required = false)
     private Long id;
 
     @ApiModelProperty(notes = "Doctor firstname", example = "John", required = true)

@@ -17,7 +17,7 @@ public class NoteDTO {
     @ApiModelProperty(notes = "The first and lastname of the doctor", example = "John Doe", required = true)
     private String doctorFullname;
 
-    @ApiModelProperty(notes = "The patient Id", example = "310cc1d1b50c7212b5cbb718", required = true)
+    @ApiModelProperty(notes = "The patient Id", example = "123", required = true)
     private String patientId;
 
     @ApiModelProperty(notes = "The text of the note", example = "Patient has Cholesterol", required = true)

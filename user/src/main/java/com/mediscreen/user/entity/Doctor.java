@@ -11,11 +11,11 @@ public class Doctor extends Model{
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull(message = "Login is mandatory and unique")
+    @NotNull
     @Column(unique = true)
     private String login;
 
-    @NotNull(message = "Password is mandatory")
+    @NotNull
     private String password;
 
 }

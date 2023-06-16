@@ -7,6 +7,8 @@
         <option value="$PROJECT_DIR$/user/pom.xml" />
         <option value="$USER_HOME$/Downloads/notes/pom.xml" />
         <option value="$PROJECT_DIR$/notes/pom.xml" />
+        <option value="$PROJECT_DIR$/../report/pom.xml" />
+        <option value="$PROJECT_DIR$/report/pom.xml" />
       </list>
     </option>
   </component>

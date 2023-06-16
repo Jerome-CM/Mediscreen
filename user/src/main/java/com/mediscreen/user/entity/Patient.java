@@ -21,7 +21,7 @@ public class Patient extends Model {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private String birthdate;
 
-    @NotNull(message = "Sex is mandatory")
+    @NotNull
     private Sex sex;
 
     private String address;

@@ -9,7 +9,7 @@ import lombok.Data;
 @Data
 public class PatientDTO {
 
-    @ApiModelProperty(notes = "Patient id", example = "646cc1d1b50c7212b5cbbbc0", required = false)
+    @ApiModelProperty(notes = "Patient id", example = "123", required = false)
     private String id;
 
     @ApiModelProperty(notes = "Patient firstname", example = "John", required = true)
@@ -22,13 +22,13 @@ public class PatientDTO {
     @JsonFormat(pattern = "dd-MM-yyyy")
     private String birthdate;
 
-    @ApiModelProperty(notes = "Patient Sex", example = "Man or Woman", required = true)
+    @ApiModelProperty(notes = "Patient Sex", example = "0 = Man or 1 = Woman", required = true)
     private Sex sex;
 
-    @ApiModelProperty(notes = "Doctor firstname", example = "254 Doctor Street, Elizabeth City, NY 27909", required = false)
+    @ApiModelProperty(notes = "Patient address", example = "254 Doctor Street, Elizabeth City, NY 27909", required = false)
     private String address;
 
-    @ApiModelProperty(notes = "Doctor firstname", example = "0612345678", required = false)
+    @ApiModelProperty(notes = "Patient phone", example = "0612345678", required = false)
     private String phone;
 
 }

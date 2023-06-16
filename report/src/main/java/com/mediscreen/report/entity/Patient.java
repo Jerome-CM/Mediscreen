@@ -1,6 +1,7 @@
 package com.mediscreen.report.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -15,15 +16,18 @@ public class Patient {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @ApiModelProperty(notes = "Patient id", example = "123", required = true)
     private Long id;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @ApiModelProperty(notes = "Patient birthdate", example = "29-06-1990", required = true)
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private String birthdate;
 
+    @ApiModelProperty(notes = "Patient Sex", example = "0 = MAN or 1 = WOMAN", required = true)
     private Sex sex;
 
-    private String address;
 
-    private String phone;
+
+
 
 }

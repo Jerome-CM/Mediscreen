@@ -2,18 +2,21 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="user" />
+        <module name="report" />
         <module name="front" />
         <module name="notes" />
+        <module name="user" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="front" target="11" />
       <module name="notes" target="11" />
+      <module name="report" target="11" />
       <module name="user" target="11" />
     </bytecodeTargetLevel>
   </component>
@@ -21,6 +24,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="front" options="-parameters" />
       <module name="notes" options="-parameters" />
+      <module name="report" options="-parameters" />
       <module name="user" options="-parameters" />
     </option>
   </component>
