@@ -26,6 +26,12 @@ public class Patient {
     @ApiModelProperty(notes = "Patient Sex", example = "0 = MAN or 1 = WOMAN", required = true)
     private Sex sex;
 
+    @ApiModelProperty(notes = "Patient address", example = "254 Doctor Street, Elizabeth City, NY 27909", required = false)
+    private String address;
+
+    @ApiModelProperty(notes = "Patient phone", example = "0612345678", required = false)
+    private String phone;
+
 
 
 

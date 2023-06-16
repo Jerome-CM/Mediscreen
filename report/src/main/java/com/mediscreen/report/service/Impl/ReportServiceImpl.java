@@ -33,10 +33,15 @@ public class ReportServiceImpl implements ReportService {
         this.patientRepository = patientRepository;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public int riskLevelCalculator(String id) {
 
         List<Note> notes = noteRepository.findNoteByPatientId(id);
-        log.info("size note : {}", notes.size());
+        log.info("Notes found : {}", notes.size());
 
         // Liste des mots à rechercher
         String[] warningWords = {"Hémoglobine A1C", "Microalbumine", "Taille", "Poids", "Fumeur", "Anormal",
@@ -47,9 +52,11 @@ public class ReportServiceImpl implements ReportService {
 
         if (notes.size() > 0) {
 
-            // Parcours des notes
+            // For each note
             for (Note note : notes) {
+                // and for each warning words
                 for (String word : warningWords) {
+                    // is it that the note contain this warning word and is it that this word isn't already found
                     if (note.getNote().toLowerCase().contains(word.toLowerCase()) && !foundWords.contains(word.toLowerCase())) {
                         foundWords.add(word.toLowerCase());
                     }
@@ -59,13 +66,20 @@ public class ReportServiceImpl implements ReportService {
             log.info("Words found : {}", foundWords.size());
             return foundWords.size();
         }
+        // Obligatory return an int, not null
         return 99;
 
         }
 
+    /**
+     *
+     * @param riskLevel
+     * @param patientId
+     * @return A level of danger
+     */
     public Response diabetesAlertPrediction(int riskLevel, Long patientId) {
 
-        // Récupérer les informations du patient à partir du repository
+        // Get patient information
         Optional<Patient> patientOpt = patientRepository.findById(patientId);
         if(patientOpt.isPresent() && riskLevel != 99){
             Patient patient = patientOpt.get();
@@ -76,7 +90,7 @@ public class ReportServiceImpl implements ReportService {
             log.info("Sex : {}", sex);
 
             String levelReturn = null;
-            if (riskLevel >= 0 && riskLevel <= 1 || riskLevel <3 && !isPatientAbove30 && sex == Sex.MAN || riskLevel <4 && !isPatientAbove30 && sex == Sex.WOMAN ) {
+            if ((riskLevel >= 0 && riskLevel <= 1) || (riskLevel <3 && !isPatientAbove30 && sex == Sex.MAN) || (riskLevel <4 && !isPatientAbove30 && sex == Sex.WOMAN)) {
                 levelReturn = "None";
             } else if (riskLevel >=2 && riskLevel <=5 && isPatientAbove30) {
                 levelReturn = "Borderline";

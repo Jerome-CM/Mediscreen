@@ -22,11 +22,21 @@ public class UserServiceImpl implements UserService {
         this.noteRepository = noteRepository;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Patient getPatient(Long id) {
         Optional<Patient> patientOptional = patientRepository.findById(id);
         return patientOptional.orElse(null);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public List<Note> getAllNotesByPatientId(String id) {
         List<Note> notesList = noteRepository.findNoteByPatientId(id);
         return notesList;

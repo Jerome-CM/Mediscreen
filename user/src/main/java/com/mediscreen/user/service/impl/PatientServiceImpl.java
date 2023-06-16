@@ -115,17 +115,4 @@ public class PatientServiceImpl implements PatientService {
         return new Response(EnumResponse.OK, patientListDTO, "");
     }
 
-    public Response getDoctorName(String first, String last){
-
-        if(!first.isEmpty() && !last.isEmpty()){
-
-            String doctorFullName = first + " " + last;
-
-            return new Response(EnumResponse.OK, doctorFullName, null);
-        }
-
-        return new Response(EnumResponse.ERROR, null, "Cookies is empty");
-    }
-
-
 }

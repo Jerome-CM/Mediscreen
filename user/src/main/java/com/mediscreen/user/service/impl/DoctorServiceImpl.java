@@ -35,7 +35,6 @@ public class DoctorServiceImpl implements DoctorService {
      * @return Response
      */
      public Response findDoctorByLogin(String login){
-        log.info("--- Method findUserByLogin ---");
         Optional<Doctor> userOpt = doctorCRUD.findDoctorByLogin(login);
         if(userOpt.isPresent()){
             DoctorDTO doctor = modelMapper.map(userOpt.get(), DoctorDTO.class);
@@ -81,7 +80,6 @@ public class DoctorServiceImpl implements DoctorService {
      * @return Response
     */
     public Response auth(ConnexionDTO co){
-        log.info("--- Method auth ---");
         Response ifExist = findDoctorByLogin(co.getLogin());
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         DoctorDTO doctor = (DoctorDTO) ifExist.getContent();
