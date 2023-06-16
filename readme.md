@@ -66,6 +66,6 @@ For each microservice, the API documentation is available to : ```http://localho
 * Now, you can register as a doctor. You need a login step
 * After the login, you can create a new patient
 * The notes can put in the patient profile
-* With notes en patient information's, you can generate a report of risk for diabetes
+* With notes and patient information's, you can generate a report of risk for diabetes
 >  Note  
 >  This project is an exercise of OpenClassRooms Java training
